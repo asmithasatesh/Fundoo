@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule } from '@angular/forms';
