@@ -1,59 +1,58 @@
 <div class="MainContainer">
     <mat-card>
-        <form class="row">
-            <div>
-                <h1>
-                    <span style="color:blue">F</span>
-                    <span style="color:red">u</span>
-                    <span style="color:yellow">n</span>
-                    <span style="color:green">d</span>
-                    <span style="color:blue">o</span>
-                    <span style="color:red">o</span>
-                </h1>
-                <h1>Create your Fundoo Account</h1>
-                <div class="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>FirstName</mat-label>
-                        <input matInput placeholder="FirstName">
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>LastName</mat-label>
-                        <input matInput placeholder="LastName">
-                    </mat-form-field>
-                </div>
-                <mat-form-field appearance="outline" class="gmail">
-                    <mat-label>Gmail</mat-label>
-                    <input matInput placeholder="gmail">
-                    <mat-icon matSuffix>@gmail.com</mat-icon>
-                    <mat-hint class="labels">You can use letters, numbers and periods</mat-hint>
+        <form class="form-columns">
+            <h1>
+                <span style="color:blue">F</span>
+                <span style="color:red">u</span>
+                <span style="color:yellow">n</span>
+                <span style="color:green">d</span>
+                <span style="color:blue">o</span>
+                <span style="color:red">o</span>
+            </h1>
+            <h1>Create your Fundoo Account</h1>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput placeholder="FirstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input matInput placeholder="LastName">
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class="gmail">
+                <mat-label>Gmail</mat-label>
+                <input matInput placeholder="gmail">
+                <mat-icon matSuffix>@gmail.com</mat-icon>
+                <mat-hint class="labels">You can use letters, numbers and periods</mat-hint>
+            </mat-form-field>
+
+            <a class="row">Use my current mail instead</a>
+            <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password">
+
                 </mat-form-field>
 
-                <a class="row">Use my current mail instead</a>
-                <div class="row">
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input matInput placeholder="Password">
-
-                    </mat-form-field>
-
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>Confirm</mat-label>
-                        <input matInput placeholder="Confirm">
-                    </mat-form-field>
-                </div>
-                <div class="labels">
-                    <mat-hint class="labels">Use 8 or more characters with a mix of letters, numbers & symbols
-                    </mat-hint>
-                </div>
-                <mat-checkbox class="">Show Password</mat-checkbox>
-
-                <div class="row space">
-                    <a href="">Sign in instead</a>
-                    <button mat-flat-button class="buttons">Next</button>
-                </div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm</mat-label>
+                    <input matInput placeholder="Confirm">
+                </mat-form-field>
             </div>
+            <div class="labels">
+                <mat-hint class="labels">Use 8 or more characters with a mix of letters, numbers & symbols
+                </mat-hint>
+            </div>
+            <mat-checkbox class="">Show Password</mat-checkbox>
+
+            <div class="row space">
+                <a href="">Sign in instead</a>
+                <button mat-flat-button class="buttons">Next</button>
+            </div>
+
         </form>
         <div class="side">
             <img width="224" height="224" src="../../../assets/side-icon.svg" />
