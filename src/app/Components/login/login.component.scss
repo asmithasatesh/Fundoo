@@ -46,32 +46,4 @@ a{
     color: #1a73e8!important;
 }
 
-//Media queries
-@media screen and (max-width:900px)
-{
-    .side
-    {
-        display: none;
-    }
-    mat-card
-    {
-      min-width: 500px;
-    }
-}
-@media screen and (max-width:600px)
-{
-    mat-card {
-        transition: none !important;
-        box-shadow: none !important;
-        justify-content: unset;
-        margin: 0 auto;
-    }
-    .form-columns{
-        display: flex;
-        flex-wrap: column wrap;
-    }
-    .row
-    {
-        flex-flow: row wrap;
-    }
-}
+
