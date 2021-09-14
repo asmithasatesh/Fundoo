@@ -45,5 +45,27 @@ a{
   ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: #1a73e8!important;
 }
-
+//Media queries
+@media screen and (max-width:900px)
+{
+    .side
+    {
+        display: none;
+    }
+    mat-card
+    {
+      min-width: 500px;
+    }
+}
+@media screen and (max-width:600px)
+{
+    mat-card {
+        transition: none !important;
+        box-shadow: none !important;
+        justify-content: unset;
+        margin: 0 auto;
+        width:80%;
+        min-width: 200px;
+    }
+}
 
