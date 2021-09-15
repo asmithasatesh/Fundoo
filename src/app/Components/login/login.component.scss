@@ -69,8 +69,8 @@ a{
 @media screen and (max-width:600px)
 {
     mat-card {
-        transition: none;
-        box-shadow: none;
+        transition: none !important;
+        box-shadow: none !important;
         margin: 0 auto;
         padding: 0px;
         padding-left: 10px;

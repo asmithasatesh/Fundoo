@@ -8,6 +8,10 @@ mat-card
     margin-top: 40px;
     min-width: 750px;
 }
+.MainContainer
+{
+    overflow:hidden;
+}
 .row 
 {
     display: flex;
@@ -40,6 +44,8 @@ a{
     color: grey;
     width: 89%;
     font-size: 15px;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 //Button
 .space
@@ -53,6 +59,7 @@ a{
     background-color: #1a73e8;
     color:white;
 }
+
 .MovetoNext
 {
     color: #1a73e8;
@@ -76,14 +83,14 @@ margin-left: 5%;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
-    background-color: #1a73e8 !important; /* Red background for example */
+    background-color: #1a73e8; /* Red background for example */
 }
 
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: #1a73e8 !important;
+    color: #1a73e8;
   }
   ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: #1a73e8!important;
+    color: #1a73e8;
 }
 
 //Media queries
@@ -104,8 +111,7 @@ margin-left: 5%;
         transition: none !important;
         box-shadow: none !important;
         margin: 0px;
-        padding: 0px;
-        padding-left: 5px;
+        padding: 0px 5px;
         width:100%;
         min-width: 200px;
     }
@@ -117,4 +123,8 @@ margin-left: 5%;
     {
         flex-flow: row wrap;
     }
+}
+.mat-label {
+    padding-bottom: 0em;
+    margin-bottom: 0px;
 }
