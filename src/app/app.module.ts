@@ -14,12 +14,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { LoginComponent } from './Components/login/login.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
+import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

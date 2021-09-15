@@ -17,6 +17,7 @@ export class ForgetPasswordComponent implements OnInit {
 };
 EmailValidation()
 {
+  console.log(sessionStorage.getItem('SessionEmail'));
   if(this.ForgetPasswordForm.get('email')?.hasError('required'))
   {
     return "Enter Email";
