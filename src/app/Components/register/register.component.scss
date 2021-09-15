@@ -1,8 +1,13 @@
-mat-card
-{
-    padding: 48px 40px 36px;
+@mixin flex{
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+$width : 100%;
+mat-card
+{
+    @include flex;
+    padding: 20px 40px 10px;
     width: 50%;
     margin: 0 auto;
     margin-top: 40px;
@@ -10,10 +15,6 @@ mat-card
     border: 0.5px solid #a8aaad79;
     box-shadow: none !important;
     border-radius: 10px;
-}
-.MainContainer
-{
-    overflow:hidden;
 }
 .row 
 {
@@ -24,7 +25,7 @@ mat-card
 mat-form-field
 {
     margin-right: 10px;
-    width: 100%;
+    width: $width;
     margin-bottom: 5px;
 }
 //Form header
@@ -57,16 +58,16 @@ a{
     width: 89%;
     font-size: 13px;
     padding-top: 0px;
-    margin-top: -13px;
+    margin-top: -10px;
     margin-bottom: 15px;
     padding-left: 12px;
 }
 //Button
 .space
 {
-    display: flex;
+    @include flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 .buttons{
     width: 25%;
@@ -85,10 +86,8 @@ a{
 }
 //Side image
 .side{
-display: flex;
+@include flex;
 flex-flow: column wrap;
-justify-content: center;
-align-items: center;
 margin-left: 5%;
 }
 .side > p{
@@ -125,22 +124,24 @@ margin-left: 5%;
 {
     mat-card {
         transition: none !important;
-        box-shadow: none !important;
+        border: none !important;
         margin: 0px;
-        padding: 0px 5px;
-        width:100%;
+        padding: 0px 10px;
+        width:$width;
         min-width: 200px;
+        margin-right: 10px;
     }
     .form-columns{
-        display: flex;
+        @include flex;
         flex-wrap: column wrap;
     }
     .row
     {
         flex-flow: row wrap;
     }
+    .space
+    {
+        margin-right: 20px;
+    }
 }
-.mat-label {
-    padding-bottom: 0em;
-    margin-bottom: 0px;
-}
+

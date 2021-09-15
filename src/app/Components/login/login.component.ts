@@ -15,8 +15,8 @@ hide = false
   ngOnInit(): void {
     this.LoginForm= new FormGroup({
       email: new FormControl('',[Validators.email,Validators.required]),
-      password: new FormControl('',[Validators.required,Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^.,:;!@#$%^&*_+=|(){}[?-]*[.,:;!@#$%^&*_+=|(){}[?-][^.,:;!@#$%^&*_+=|(){}[?-]*$).{4,}$'),Validators.minLength(8)])
-      })
+      password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&].{4,}'),Validators.minLength(8)])
+    })
   }
   EmailValidation()
   {

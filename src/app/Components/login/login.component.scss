@@ -5,7 +5,6 @@ mat-card
     flex-flow: column wrap;
     width: 30%;
     margin: 0 auto;
-    margin-top: 40px;
     min-width: 500px;
     border: 0.5px solid #a8aaad79;
     box-shadow: none !important;
@@ -31,7 +30,7 @@ a{
 {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 .buttons{
     width: 15%;
@@ -60,20 +59,20 @@ a{
 //Media queries
 @media screen and (max-width:900px)
 {
-    .side
-    {
-        display: none;
-    }
     mat-card
     {
       min-width: 500px;
+    }
+    .side
+    {
+        display: none;
     }
 }
 @media screen and (max-width:600px)
 {
     mat-card {
         transition: none !important;
-        box-shadow: none !important;
+        border: none !important;
         margin: 0 auto;
         padding: 0px;
         padding-left: 10px;

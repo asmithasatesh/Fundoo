@@ -48,13 +48,14 @@
                     </mat-form-field>
                 </div>
                 <div class="margin-override">
-                    <mat-hint>Password should have 1 Special character , one or more aphabets(Capital letter, small letter) and digits
+                    <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols
                     </mat-hint>
                 </div>
                 <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
                 <div class="row space">
                     <button mat-button class="MovetoNext" [routerLink]="['/login']">Sign in instead</button>
-                    <button mat-flat-button class="buttons" [routerLink]="['/login']">Next</button>
+                    <button mat-flat-button class="buttons" >Next</button>
+                    <!-- [routerLink]="['/login']" -->
                 </div>
             </div>
         </form>

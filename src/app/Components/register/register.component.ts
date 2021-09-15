@@ -13,10 +13,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.RegisterForm = new FormGroup({
-      firstName: new FormControl('',[Validators.required, Validators.pattern('^[A-Z]{1}[a-z]{1,}$'),Validators.minLength(3)]),
-      lastName: new FormControl('' ,[Validators.required, Validators.pattern('^[A-Z]{1}[a-z]{1,}$'), Validators.minLength(3)]),
+      firstName: new FormControl('',[Validators.required, Validators.pattern('^[A-Z]{1}[a-z (␣)]{1,}$'),Validators.minLength(3)]),
+      lastName: new FormControl('' ,[Validators.required, Validators.pattern('^[A-Z]{1}[a-z (␣)]{1,}$'), Validators.minLength(3)]),
       email: new FormControl('',[Validators.email,Validators.required]),
-      password: new FormControl('',[Validators.required,Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^.,:;!@#$%^&*_+=|(){}[?-]*[.,:;!@#$%^&*_+=|(){}[?-][^.,:;!@#$%^&*_+=|(){}[?-]*$).{4,}$'),Validators.minLength(8)]),
+      password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z\d$@!%*?&].{4,}'),Validators.minLength(8)]),
       confirmPassword: new FormControl('',[Validators.required])
     })
   }
