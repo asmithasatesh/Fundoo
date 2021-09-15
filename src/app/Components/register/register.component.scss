@@ -7,6 +7,9 @@ mat-card
     margin: 0 auto;
     margin-top: 40px;
     min-width: 750px;
+    border: 0.5px solid #a8aaad79;
+    box-shadow: none !important;
+    border-radius: 10px;
 }
 .MainContainer
 {
@@ -22,6 +25,7 @@ mat-form-field
 {
     margin-right: 10px;
     width: 100%;
+    margin-bottom: 5px;
 }
 //Form header
 h1> span{
@@ -43,9 +47,19 @@ a{
 {
     color: grey;
     width: 89%;
-    font-size: 15px;
+    font-size: 13px;
     padding-top: 0px;
-    margin-top: 0px;
+    margin-bottom: 15px;
+}
+.margin-override
+{
+    color: grey;
+    width: 89%;
+    font-size: 13px;
+    padding-top: 0px;
+    margin-top: -13px;
+    margin-bottom: 15px;
+    padding-left: 12px;
 }
 //Button
 .space
@@ -92,7 +106,9 @@ margin-left: 5%;
   ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: #1a73e8;
 }
-
+::ng-deep .mat-form-field-suffix {
+    position:unset !important; 
+}
 //Media queries
 @media screen and (max-width:900px)
 {

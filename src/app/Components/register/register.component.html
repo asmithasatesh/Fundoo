@@ -14,44 +14,47 @@
                 <div class="row">
                     <mat-form-field appearance="outline">
                         <mat-label>FirstName</mat-label>
-                        <input matInput placeholder="FirstName" formControlName='firstName' required>
+                        <input matInput placeholder="FirstName" formControlName='firstName'>
                         <mat-error>{{FirstNameValidation()}}</mat-error>
 
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>LastName</mat-label>
-                        <input matInput placeholder="LastName" formControlName='lastName' required>
+                        <input matInput placeholder="LastName" formControlName='lastName'>
                         <mat-error>{{LastNameValidation()}}</mat-error>
                     </mat-form-field>
                 </div>
                 <mat-form-field appearance="outline" class="gmail">
                     <mat-label>User Name</mat-label>
-                    <input matInput placeholder="UserName">
+                    <input matInput placeholder="UserName" formControlName='email'>
                     <mat-icon matSuffix>@gmail.com</mat-icon>
-                    <mat-hint class="labels">You can use letters, numbers and periods</mat-hint>
+                    <mat-hint class="labels">You can use letters, numbers and periods</mat-hint> 
+                    <mat-error>{{EmailValidation()}}</mat-error>
                 </mat-form-field>
-
-                <a class="row">Use my current mail instead</a>
                 <div class="row">
 
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput [type]='hide?"text":"password"' placeholder="Password">
+                        <input matInput [type]='hide?"text":"password"' placeholder="Password" formControlName='password'>
+                        <mat-error>{{ PasswordValidation()}}</mat-error>
 
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm</mat-label>
-                        <input matInput placeholder="Confirm" [type]='hide?"text":"password"'>
+                        <input matInput placeholder="Confirm" [type]='hide?"text":"password"' formControlName='confirmPassword'>
+                        <mat-error>{{errorMessafe}}</mat-error>
+                        <mat-error> {{ConfirmPasswordValidate()}}</mat-error>
+
                     </mat-form-field>
                 </div>
-                <div class="labels">
-                    <mat-hint class="labels">Use 8 or more characters with a mix of letters, numbers & symbols
+                <div class="margin-override">
+                    <mat-hint>Password should have 1 Special character , one or more aphabets(Capital letter, small letter) and digits
                     </mat-hint>
                 </div>
                 <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
                 <div class="row space">
                     <button mat-button class="MovetoNext" [routerLink]="['/login']">Sign in instead</button>
-                    <button mat-flat-button class="buttons" >Next</button>
+                    <button mat-flat-button class="buttons" [routerLink]="['/login']">Next</button>
                 </div>
             </div>
         </form>
