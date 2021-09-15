@@ -20,7 +20,8 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" [type]='hide?"text":"password"'>
+            <input matInput placeholder="Password" [type]='hide?"text":"password"' formControlName='password'>
+            <mat-error>  {{PasswordValidation()}}</mat-error>
         </mat-form-field>
         <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
         <a href="">Forgot Password?</a>
