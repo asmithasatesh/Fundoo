@@ -38,14 +38,14 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm</mat-label>
-                        <input matInput placeholder="Confirm">
+                        <input matInput placeholder="Confirm" [type]='hide?"text":"password"'>
                     </mat-form-field>
                 </div>
                 <div class="labels">
                     <mat-hint class="labels">Use 8 or more characters with a mix of letters, numbers & symbols
                     </mat-hint>
                 </div>
-                <mat-checkbox class="">Show Password</mat-checkbox>
+                <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
                 <div class="row space">
                     <button mat-button class="MovetoNext" [routerLink]="['/login']">Sign in instead</button>
                     <button mat-flat-button class="buttons" [routerLink]="['/login']">Next</button>

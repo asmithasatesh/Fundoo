@@ -19,9 +19,9 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password">
+            <input matInput placeholder="Password" [type]='hide?"text":"password"'>
         </mat-form-field>
-        <mat-checkbox class="">Show Password</mat-checkbox>
+        <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
         <a href="">Forgot Password?</a>
         <div class="row space">
             <button mat-button class="MovetoNext" [routerLink]="['/register']">Create Account</button>
