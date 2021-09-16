@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{ FormControl, Validators, FormGroup} from '@angular/forms';
+import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +10,7 @@ export class RegisterComponent implements OnInit {
  RegisterForm!: FormGroup;
  hide = false
  errorMessafe=""
-  constructor() { }
+  constructor(private useService: UserServiceService) { }
 
   ngOnInit(): void {
     this.RegisterForm = new FormGroup({
@@ -18,25 +19,22 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('',[Validators.email,Validators.required]),
       password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z\d$@!%*?&].{4,}'),Validators.minLength(8)]),
       confirmPassword: new FormControl('',[Validators.required])
-    })
+    });
+
   }
-  ConfirmPasswordValidate()
+  Register()
   {
-    if(this.RegisterForm.get('confirmPassword')?.hasError('required'))
-    {
-      return "Enter Confirm Password";
-    }
-    else{
-      const control = this.RegisterForm.get('password')?.value;
-      const matchingControl = this.RegisterForm.get('confirmPassword')?.value;
-      if (control == matchingControl) 
-      {
-        console.log(matchingControl);
-        this.errorMessafe = "Those passwords didn’t match. Try again.";
-      }
-      return null;
-    }     
+  if(!this.RegisterForm.invalid) 
+  {
+    console.log("Register method");
+    this.useService.Register(this.RegisterForm.value)
+  .subscribe((status: any) => {
+   console.log(status);
+  })
+}
   }
+  
+
   FirstNameValidation()
   {
     if(this.RegisterForm.get('firstName')?.hasError('required'))

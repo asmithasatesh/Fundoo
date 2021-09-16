@@ -14,7 +14,7 @@
                 <div class="row">
                     <mat-form-field appearance="outline">
                         <mat-label>FirstName</mat-label>
-                        <input matInput placeholder="FirstName" formControlName='firstName'>
+                        <input matInput placeholder="FirstName" formControlName='firstName' required>
                         <mat-error>{{FirstNameValidation()}}</mat-error>
 
                     </mat-form-field>
@@ -41,9 +41,9 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm</mat-label>
-                        <input matInput placeholder="Confirm" [type]='hide?"text":"password"' formControlName='confirmPassword'>
-                        <mat-error>{{errorMessafe}}</mat-error>
-                        <mat-error> {{ConfirmPasswordValidate()}}</mat-error>
+                        <input matInput placeholder="Confirm" [type]='hide?"text":"password"' formControlName='confirmPassword' pattern="{{this.RegisterForm.value.password}}">
+                        <mat-error *ngIf="RegisterForm.get('confirmPassword')?.hasError('pattern')">Passwords didn’t match.Try Again</mat-error>
+                        <mat-error *ngIf="RegisterForm.get('confirmPassword')?.hasError('required')">Enter Confirm Password</mat-error>
 
                     </mat-form-field>
                 </div>
@@ -54,7 +54,7 @@
                 <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
                 <div class="row space">
                     <button mat-button class="MovetoNext" [routerLink]="['/login']">Sign in instead</button>
-                    <button mat-flat-button class="buttons" >Next</button>
+                    <button mat-flat-button class="buttons" (click)="Register()">Next</button>
                     <!-- [routerLink]="['/login']" -->
                 </div>
             </div>
