@@ -23,7 +23,7 @@
             <input matInput placeholder="Password" [type]='hide?"text":"password"' formControlName='password'>
             <mat-error>  {{PasswordValidation()}}</mat-error>
         </mat-form-field>
-        <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
+        <mat-checkbox class="" (change)="hide=!hide">Show Password</mat-checkbox>
         <a [routerLink]="['/forget-password']">Forgot Password?</a>
         <div class="row space">
             <button mat-button class="MovetoNext" [routerLink]="['/register']">Create Account</button>

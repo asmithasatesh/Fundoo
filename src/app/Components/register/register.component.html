@@ -44,14 +44,13 @@
                         <input matInput placeholder="Confirm" [type]='hide?"text":"password"' formControlName='confirmPassword' pattern="{{this.RegisterForm.value.password}}">
                         <mat-error *ngIf="RegisterForm.get('confirmPassword')?.hasError('pattern')">Passwords didn’t match.Try Again</mat-error>
                         <mat-error *ngIf="RegisterForm.get('confirmPassword')?.hasError('required')">Enter Confirm Password</mat-error>
-
                     </mat-form-field>
                 </div>
                 <div class="margin-override">
                     <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols
                     </mat-hint>
                 </div>
-                <mat-checkbox class="" (click)="hide=!hide">Show Password</mat-checkbox>
+                <mat-checkbox class="" (change)="hide=!hide">Show Password</mat-checkbox>
                 <div class="row space">
                     <button mat-button class="MovetoNext" [routerLink]="['/login']">Sign in instead</button>
                     <button mat-flat-button class="buttons" (click)="Register()">Next</button>
