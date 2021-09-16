@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpServiceService } from '../HttpService/http-service.service';
 import { environment } from 'src/environments/environment';
+import { HttpParams, HttpParamsOptions } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +25,10 @@ export class UserServiceService {
       Password : data.password
     }
     return this.httpService.post(`${environment.baseUrl}/api/login`,params);
+  }
+  ForgotPassword(data: any)
+  {
+    const params = new HttpParams().set('Email',data.email);
+    return this.httpService.post(`${environment.baseUrl}/api/forgetPassword`,params);
   }
 }
