@@ -27,7 +27,7 @@
         <a [routerLink]="['/forget-password']">Forgot Password?</a>
         <div class="row space">
             <button mat-button class="MovetoNext" [routerLink]="['/register']">Create Account</button>
-            <button mat-flat-button class="buttons">Next</button>
+            <button mat-flat-button class="buttons" (click)="Login()">Next</button>
         </div>
     </mat-card>
 </div>
