@@ -23,7 +23,7 @@ hide = false
       password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#@$!%*?&])[A-Za-z\d@#$!%*?&].{4,}'),Validators.minLength(8)])
     })
   }
-  
+
   Login()
   {
   if(!this.LoginForm.invalid) 
@@ -35,6 +35,7 @@ hide = false
     {
       if(status.status == true)
       {
+        this.StoreLocalStorage(status);
         this.openSnackBar(status.message);
         this.router.navigateByUrl('/login');
       }
@@ -47,6 +48,12 @@ hide = false
     }
   })
   }
+  }
+  StoreLocalStorage(data: any)
+  {
+    let lList=localStorage.getItem("UserDetails");
+    lList=data;
+    localStorage.setItem("UserDetails",JSON.stringify(lList));
   }
 
   openSnackBar(message: string) {
