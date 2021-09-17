@@ -11,6 +11,7 @@ import { UserServiceService } from 'src/app/Services/UserService/user-service.se
 })
 export class ForgetPasswordComponent implements OnInit {
   ForgetPasswordForm!: FormGroup;
+  
   constructor(private useService: UserServiceService,
     private router: Router,
     private snack: MatSnackBar) { }
@@ -48,8 +49,6 @@ StoreLocalStorage(data: any)
 {
   let lList=data.data;
   localStorage.setItem("ForgetPassword",JSON.stringify(lList)); 
-  var token=(JSON.parse(localStorage.getItem("ForgetPassword")!));
-  console.log(`reset-password/${token.email}/${token.userToken}`);
 }
 
 openSnackBar(message: string) {

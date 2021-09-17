@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import{ FormControl, Validators, FormGroup} from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 import { Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -12,17 +14,23 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ResetpasswordComponent implements OnInit {
   hide = false
   ResetForm!: FormGroup;
+  Email=(JSON.parse(localStorage.getItem("ForgetPassword")!).email); 
+
   constructor(private useService: UserServiceService,
     private router: Router,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.ResetForm = new FormGroup({
-      email: new FormControl('',[Validators.email,Validators.required]),
       password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z\d$@!%*?&].{4,}'),Validators.minLength(8)]),
       confirmPassword: new FormControl('',[Validators.required])
-  })
+  });
 }
+
+
+
+
 ResetPassword()
 {
 if(!this.ResetForm.invalid) 

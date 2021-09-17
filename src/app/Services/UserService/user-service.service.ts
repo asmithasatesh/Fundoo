@@ -34,7 +34,7 @@ export class UserServiceService {
   ResetPassword(data: any)
   {
     const params = {
-      Email : data.email,
+      Email: (JSON.parse(localStorage.getItem("ForgetPassword")!).email) ,
       Password : data.password
     }
     return this.httpService.put(`${environment.baseUrl}/api/resetPassword`,params);
