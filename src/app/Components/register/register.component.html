@@ -14,9 +14,8 @@
                 <div class="row">
                     <mat-form-field appearance="outline">
                         <mat-label>FirstName</mat-label>
-                        <input matInput placeholder="FirstName" formControlName='firstName' required>
+                        <input matInput placeholder="FirstName" formControlName='firstName' type="text" required>
                         <mat-error>{{FirstNameValidation()}}</mat-error>
-
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>LastName</mat-label>
@@ -47,7 +46,7 @@
                     </mat-form-field>
                 </div>
                 <div class="margin-override">
-                    <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols
+                    <mat-hint >Use 8 or more characters with a mix of letters, numbers & symbols
                     </mat-hint>
                 </div>
                 <mat-checkbox class="" (change)="hide=!hide">Show Password</mat-checkbox>

@@ -98,7 +98,10 @@ margin-left: 5%;
     font-size: 17px;
     font-weight: lighter;
 }
-
+.sg-other-li .sg-required-icon {
+    display:none;
+    }
+    
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
     background-color: #1a73e8; /* Red background for example */
 }
@@ -148,4 +151,3 @@ margin-left: 5%;
         margin-right: 20px;
     }
 }
-

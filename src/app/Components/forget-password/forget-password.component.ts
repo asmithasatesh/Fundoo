@@ -31,6 +31,7 @@ if(!this.ForgetPasswordForm.invalid)
   {
     if(status.status == true)
     {
+      this.StoreLocalStorage(status);
       this.openSnackBar(status.message);
     }
   },(error: HttpErrorResponse) => {
@@ -42,6 +43,13 @@ if(!this.ForgetPasswordForm.invalid)
   }
 })
 }
+}
+StoreLocalStorage(data: any)
+{
+  let lList=data.data;
+  localStorage.setItem("ForgetPassword",JSON.stringify(lList)); 
+  var token=(JSON.parse(localStorage.getItem("ForgetPassword")!));
+  console.log(`reset-password/${token.email}/${token.userToken}`);
 }
 
 openSnackBar(message: string) {

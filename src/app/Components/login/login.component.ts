@@ -23,6 +23,7 @@ hide = false
       password : new FormControl('',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#@$!%*?&])[A-Za-z\d@#$!%*?&].{4,}'),Validators.minLength(8)])
     })
   }
+  
   Login()
   {
   if(!this.LoginForm.invalid) 

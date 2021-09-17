@@ -5,11 +5,14 @@ import { LoginComponent } from './Components/login/login.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 
+
+var token=(JSON.parse(localStorage.getItem("ForgetPassword")!));
+
 const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path:'forget-password', component:ForgetPasswordComponent},
-  {path:'reset-password',component:ResetpasswordComponent}
+  {path:`reset-password/${token.email}/${token.userToken}`,component:ResetpasswordComponent}
 ];
 
 @NgModule({
