@@ -10,7 +10,7 @@
             </div>
             <div class="search">
                 <mat-form-field appearance="outline">
-                    <mat-icon matPrefix  class="search-icon">search</mat-icon>  
+                    <mat-icon matPrefix class="search-icon">search</mat-icon>
                     <input matInput placeholder="  Search">
                     <i class="material-icons" matSuffix>clear</i>
                 </mat-form-field>
@@ -21,7 +21,14 @@
                     <i class="material-icons icons" *ngIf="!isGrid" (click)="isGrid=true">view_list</i>
                     <i class="material-icons icons" *ngIf="isGrid" (click)="isGrid=false">grid_view</i>
                 </div>
-                <mat-icon class="icons">account_circle</mat-icon>
+                <mat-icon class="icons" [matMenuTriggerFor]="menu">account_circle</mat-icon>
+                <mat-menu #menu="matMenu" class="account-menu">
+                    <img src="../../../assets/account.png" width="60px" height="60px" style="margin-top: 25px;">
+                     <p >{{UserDetails.firstName}} {{UserDetails.lastName}}</p>
+                    <p class="email ">{{UserDetails.email}}</p>
+                    <mat-divider style="width: 100%; margin: 0px; padding: 0px;"></mat-divider>
+                    <button mat-raised-button >Logout</button>
+                </mat-menu>
             </div>
         </mat-toolbar>
         <mat-divider></mat-divider>

@@ -22,6 +22,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatTooltipModule,
     MatToolbarModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

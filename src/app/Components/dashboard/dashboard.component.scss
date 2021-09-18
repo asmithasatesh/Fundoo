@@ -3,6 +3,11 @@
     align-items: center;
     justify-content: space-between;
 }
+.divider
+{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
 mat-toolbar
 {
     @include flex;
@@ -39,14 +44,32 @@ mat-toolbar
 .icons
 {
     margin-right: 20px;
-    font-size: 28px;
+    font-size: 30px;
 }
+
 .search{
     margin-top: 30px;
     width: 70%;
     margin: 30 15% 0 15%;
 }
-
+.email
+{
+    margin-top: -10px;
+    color:#5f6368;
+}
+::ng-deep .mat-menu-content
+{
+    display: flex !important;
+    flex-flow: column !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+padding: 40px;
+}
+.mat-menu-item {
+    text-align: center;
+    
+}
 mat-form-field{
     width: 70%;
 }
