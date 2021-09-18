@@ -24,7 +24,7 @@
             <mat-error>  {{PasswordValidation()}}</mat-error>
         </mat-form-field>
         <mat-checkbox class="" (change)="hide=!hide">Show Password</mat-checkbox>
-        <a [routerLink]="['/forget-password']">Forgot Password?</a>
+        <a [routerLink]="['/forget-password']" matTooltip="You can Reset your password with this option">Forgot Password?</a>
         <div class="row space">
             <button mat-button class="MovetoNext" [routerLink]="['/register']">Create Account</button>
             <button mat-flat-button class="buttons" (click)="Login()">Next</button>

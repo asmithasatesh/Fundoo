@@ -1,0 +1,59 @@
+@mixin flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+mat-toolbar
+{
+    @include flex;
+    background-color: white;
+}
+::ng-deep .mat-form-field-infix {
+    border-top: 0px !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(128, 125, 126);
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color:white !important;
+}
+::ng-deep .mat-form-field-wrapper
+{
+    margin-bottom: 1.34375em !important;
+    padding-bottom: 0px !important;
+    &:focus-within{
+        box-shadow: 1px 1px 1px 0px  rgb(128, 125, 126);
+        border-radius: 7px;
+    }
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: .45em !important;
+}
+.menu-box
+{
+    @include flex;
+    width: 11%;
+    align-items: center;
+    color:#5f6368;
+}
+.icons
+{
+    margin-right: 20px;
+    font-size: 28px;
+}
+.search{
+    margin-top: 30px;
+    width: 70%;
+    margin: 30 15% 0 15%;
+}
+
+mat-form-field{
+    width: 70%;
+}
+::ng-deep .mat-form-field-infix{
+    padding: 10px !important;
+}
+mat-icon,.material-icons
+{
+    color: rgb(128, 125, 126);
+}

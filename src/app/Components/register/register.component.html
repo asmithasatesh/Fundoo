@@ -1,7 +1,7 @@
 <div class="MainContainer">
     <mat-card>
         <form [formGroup]="RegisterForm" class="form-columns">
-            <div>
+            <div (capsLock)="capsOn=$event">
                 <h1>
                     <span style="color:blue">F</span>
                     <span style="color:red">u</span>
@@ -11,10 +11,11 @@
                     <span style="color:red">o</span>
                 </h1>
                 <h1>Create your Fundoo Account</h1>
+                <p class="capslock" *ngIf="isCaps" align="center">Caps Lock is on!</p>
                 <div class="row">
                     <mat-form-field appearance="outline">
                         <mat-label>FirstName</mat-label>
-                        <input matInput placeholder="FirstName" formControlName='firstName' type="text" required>
+                        <input matInput placeholder="FirstName" formControlName='firstName' type="text">
                         <mat-error>{{FirstNameValidation()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
@@ -26,7 +27,7 @@
                 <mat-form-field appearance="outline" class="gmail">
                     <mat-label>User Name</mat-label>
                     <input matInput placeholder="UserName" formControlName='email'>
-                    <mat-icon matSuffix>@gmail.com</mat-icon>
+                    <p matSuffix>@gmail.com</p>
                     <mat-hint class="labels">You can use letters, numbers and periods</mat-hint> 
                     <mat-error>{{EmailValidation()}}</mat-error>
                 </mat-form-field>
@@ -34,10 +35,11 @@
 
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput [type]='hide?"text":"password"' placeholder="Password" formControlName='password'>
+                            <input matInput [type]='hide?"text":"password"' placeholder="Password" formControlName='password'>
                         <mat-error>{{ PasswordValidation()}}</mat-error>
 
                     </mat-form-field>
+                    <label *ngIf="capsOn">Caps Locked</label>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm</mat-label>
                         <input matInput placeholder="Confirm" [type]='hide?"text":"password"' formControlName='confirmPassword' pattern="{{this.RegisterForm.value.password}}">

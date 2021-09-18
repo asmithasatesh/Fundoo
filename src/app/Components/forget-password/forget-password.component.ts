@@ -4,6 +4,7 @@ import { Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
+
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -11,6 +12,7 @@ import { UserServiceService } from 'src/app/Services/UserService/user-service.se
 })
 export class ForgetPasswordComponent implements OnInit {
   ForgetPasswordForm!: FormGroup;
+  
   constructor(private useService: UserServiceService,
     private router: Router,
     private snack: MatSnackBar) { }
@@ -44,13 +46,6 @@ if(!this.ForgetPasswordForm.invalid)
 })
 }
 }
-StoreLocalStorage(data: any)
-{
-  let lList=data.data;
-  localStorage.setItem("ForgetPassword",JSON.stringify(lList)); 
-  var token=(JSON.parse(localStorage.getItem("ForgetPassword")!));
-  console.log(`reset-password/${token.email}/${token.userToken}`);
-}
 
 openSnackBar(message: string) {
   this.snack.open(message,'',{duration:3000});
@@ -67,5 +62,10 @@ EmailValidation()
     return "Email is not in proper format";
   }
   return null;
+}
+StoreLocalStorage(data: any)
+{
+  let lList=data.data;
+  localStorage.setItem("ForgetPassword",JSON.stringify(lList)); 
 }
 }

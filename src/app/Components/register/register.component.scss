@@ -7,10 +7,10 @@ $width : 100%;
 mat-card
 {
     @include flex;
-    padding: 55px 40px 20px;
+    padding: 30px 40px 20px;
     width: 50%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 60px;
     min-width: 750px;
     border: 0.5px solid #a8aaad79;
     box-shadow: none !important;
@@ -21,6 +21,7 @@ mat-card
     display: flex;
     margin-top: 15px;
 }
+
 //Input forms
 mat-form-field
 {
@@ -38,6 +39,14 @@ a{
     color: #1a73e8;
     font-weight:500;
     justify-content: space-between;
+}
+.capslock
+{
+    padding: -15px!important;
+    margin: -15px!important;
+    color: red;
+
+    text-align: center;
 }
 // Input Label Hints
 .gmail
@@ -151,4 +160,3 @@ margin-left: 5%;
         margin-right: 20px;
     }
 }
-

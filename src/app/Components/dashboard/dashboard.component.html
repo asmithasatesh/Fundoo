@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <mat-toolbar>
+            <div class="menu-box">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <img src="../../../assets/60595ee112518.png" width="40px" height="40px">
+                <span>Fundoo</span>
+            </div>
+            <div class="search">
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix  class="search-icon">search</mat-icon>  
+                    <input matInput placeholder="  Search">
+                    <i class="material-icons" matSuffix>clear</i>
+                </mat-form-field>
+            </div>
+            <div class="menu-box">
+                <div class="menu-box">
+                    <i class="material-icons icons">refresh</i>
+                    <i class="material-icons icons" *ngIf="!isGrid" (click)="isGrid=true">view_list</i>
+                    <i class="material-icons icons" *ngIf="isGrid" (click)="isGrid=false">grid_view</i>
+                </div>
+                <mat-icon class="icons">account_circle</mat-icon>
+            </div>
+        </mat-toolbar>
+        <mat-divider></mat-divider>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import{ FormControl, Validators, FormGroup} from '@angular/forms';
 import { UserServiceService } from 'src/app/Services/UserService/user-service.service';
 import { Router} from '@angular/router';
@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
  RegisterForm!: FormGroup;
  hide = false
  errorMessafe=""
+ capsOn: any
  
   constructor(private useService: UserServiceService,
      private router: Router,
@@ -118,4 +119,11 @@ export class RegisterComponent implements OnInit {
     }
     return null;
   }
+
+public isCaps: boolean = false;
+
+@HostListener('window:keydown', ['$event'])
+public onKeydown(event: KeyboardEvent): void {
+  this.isCaps = typeof event.getModifierState === 'function' && event.getModifierState('CapsLock');
+}
 }
