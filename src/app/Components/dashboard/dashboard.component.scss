@@ -49,12 +49,13 @@ mat-toolbar
 mat-icon
 {
     cursor: pointer;
+    padding: 10px;
 }
-mat-icon:not(:last-child):after,.material-icons:hover
+.material-icons:hover
 {
     border-radius: 50%;
     background-color: rgb(192, 189, 189);
-    padding: 10px;
+
 }
 .mat-raised-button:not([class*=mat-elevation-z]) {
     margin-top: 18px !important;
@@ -92,4 +93,48 @@ mat-form-field{
 mat-icon,.material-icons
 {
     color: rgb(128, 125, 126);
+}
+
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: white;
+    width: 15%;
+    height: 100%;
+}
+.row{
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    padding-bottom: 3px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+h2{
+    margin-left: 30px;
+    font-size: medium;
+}
+
+mat-drawer:not(.mat-drawer-opened) {
+    transform: translate3d(0, 0, 0) !important;
+    visibility: visible !important;
+    width: 70px !important;
+    overflow: hidden!important;
+  }
+ 
+.row:hover{
+    color: black !important;
+    background-color: brown;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+mat-drawer-container {
+    min-height: 500px;
+    min-width: 500px;
+  }
+.mat-drawer-inner-container::-webkit-scrollbar {
+    display: none;
 }

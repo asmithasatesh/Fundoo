@@ -9,6 +9,7 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
   isGrid=false
+  opened: boolean = true;
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   ngOnInit(): void {
   }

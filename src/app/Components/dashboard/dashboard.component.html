@@ -2,8 +2,8 @@
     <div>
         <mat-toolbar>
             <div class="menu-box">
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
+                <button mat-icon-button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon (click)="sidenav.toggle() && opened=!opened" >menu</mat-icon>
                 </button>
                 <img src="../../../assets/60595ee112518.png" width="40px" height="40px">
                 <span>Fundoo</span>
@@ -32,5 +32,33 @@
             </div>
         </mat-toolbar>
         <mat-divider></mat-divider>
+
+          <mat-drawer-container class="example-container">
+            <mat-drawer mode="side"  #sidenav opened position="start">
+            <div class="row">
+                <i class="material-icons">lightbulb_outline</i>
+                <h2 *ngIf="opened" mat-line>Notes</h2>
+            </div>
+            <div class="row">
+                <i class="material-icons">notifications_none</i>
+                <h2 *ngIf="opened" >Reminders</h2>
+            </div>
+            <div class="row">
+                <i class="material-icons">edit</i>
+                <h2 *ngIf="opened" >Edit Labels</h2>
+            </div>
+            <div class="row">
+                <i class="material-icons">archive</i>
+                <h2 *ngIf="opened" >Archive</h2>
+            </div>
+            <div class="row">
+                <i class="material-icons">delete</i>
+                <h2 *ngIf="opened" >Trash</h2>
+            </div>
+            </mat-drawer>
+            <mat-drawer-content align="center">
+                Main content
+            </mat-drawer-content>
+          </mat-drawer-container>
     </div>
 </div>
