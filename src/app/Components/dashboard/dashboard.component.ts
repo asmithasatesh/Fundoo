@@ -33,9 +33,7 @@ export class DashboardComponent implements OnInit {
   }
   Toggle()
   {
-    if(this.toggle!=true || !(this.toggle==true && this.opened == true))
-    {
-      this.opened=!this.opened;
+      this.toggle=!this.toggle;
     }
-  }
+  
 }

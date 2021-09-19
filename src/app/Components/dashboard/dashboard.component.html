@@ -41,7 +41,7 @@
 
 
         <mat-drawer-container class="example-container"  >
-            <mat-drawer mode="side" #sidenav opened position="start">
+            <mat-drawer mode="side" #sidenav opened position="start"  (mouseenter)="Toggle()"  (mouseleave)="Toggle()" >
 
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
 
@@ -51,19 +51,19 @@
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">notifications_none</i>
-                        <h2 *ngIf="opened">Reminders</h2>
+                        <h2 *ngIf="opened || toggle">Reminders</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">edit</i>
-                        <h2 *ngIf="opened">Edit Labels</h2>
+                        <h2 *ngIf="opened || toggle">Edit Labels</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">archive</i>
-                        <h2 *ngIf="opened">Archive</h2>
+                        <h2 *ngIf="opened || toggle">Archive</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">delete</i>
-                        <h2 *ngIf="opened">Trash</h2>
+                        <h2 *ngIf="opened || toggle">Trash</h2>
                     </mat-button-toggle>
 
                 </mat-button-toggle-group>
