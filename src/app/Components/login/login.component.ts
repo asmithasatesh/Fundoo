@@ -38,7 +38,7 @@ hide = false
       {
         this.StoreLocalStorage(status);
         this.openSnackBar(status.message);
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/dashboard');
       }
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);

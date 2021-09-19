@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,11 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  searchField:any;
+  clearSearchField() {
+    this.searchField = '';
+  }
+  constructor(private route : Router) { }
   isGrid=false
-  opened: boolean = true;
+  opened: boolean = false;
+  toggle: boolean = false;
+
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   ngOnInit(): void {
+  }
+
+  Logout(){
+      if(this.UserDetails != null){
+          localStorage.removeItem("UserDetails");
+          this.route.navigateByUrl('/login');
+      }
+  }
+  PageReload(){
+    if(this.UserDetails == null){
+      this.route.navigateByUrl('/login');
+    }
   }
 }
