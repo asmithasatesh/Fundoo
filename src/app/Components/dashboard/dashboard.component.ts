@@ -31,4 +31,11 @@ export class DashboardComponent implements OnInit {
       this.route.navigateByUrl('/login');
     }
   }
+  Toggle()
+  {
+    if(this.toggle!=true || !(this.toggle==true && this.opened == true))
+    {
+      this.opened=!this.opened;
+    }
+  }
 }

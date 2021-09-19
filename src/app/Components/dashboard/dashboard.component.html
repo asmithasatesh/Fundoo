@@ -4,7 +4,7 @@
             <div class="menu-box">
                 <button mat-icon-button mat-icon-button class="example-icon"
                     aria-label="Example icon-button with menu icon">
-                    <mat-icon (click)="sidenav.toggle() && opened=!opened && toggle!=toggle">menu</mat-icon>
+                    <mat-icon (click)="sidenav.toggle();opened=!opened">menu</mat-icon>
                 </button>
                 <img src="../../../assets/60595ee112518.png" width="40px" height="40px">
                 <span>Fundoo</span>
@@ -41,14 +41,13 @@
 
 
         <mat-drawer-container class="example-container"  >
-            <mat-drawer mode="side" #sidenav opened position="start" (mouseover)="toggle!=true?opened=!opened:''"
-        (mouseout)="toggle!=true?opened=!opened:''">
+            <mat-drawer mode="side" #sidenav opened position="start">
 
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
 
                     <mat-button-toggle class="row">
                         <i class="material-icons">lightbulb_outline</i>
-                        <h2 *ngIf="opened">Notes</h2>
+                        <h2 *ngIf="opened || toggle">Notes</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">notifications_none</i>
