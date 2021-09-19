@@ -25,6 +25,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NotesComponent } from './Components/notes/notes.component';
+import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ForgetPasswordComponent,
     ResetpasswordComponent,
     DashboardComponent,
+    NotesComponent,
+    TextareaAutoresizeDirective,
   ],
   imports: [
     BrowserModule,

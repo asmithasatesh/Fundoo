@@ -1,0 +1,76 @@
+$roboto-slab: 'Roboto', san-serif;  
+mat-card
+{
+    width: 40%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin: 40px auto;
+    padding: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+
+}
+.row
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding:10px 10px 0px;
+    color: rgb(70, 68, 68);
+    font-family: $roboto-slab;
+}
+::ng-deep .mat-form-field-underline{
+    display: none;
+}
+.material-icons
+{
+    background: white;
+    color: rgb(70, 68, 68);
+    margin-right: 10px;
+}
+
+input{
+    border: none;
+    width: 100%;
+    min-width: fit-content;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    &:focus-visible{
+        outline: none;
+    }
+}
+.column
+{
+    width: 100%;
+}
+textarea {
+    resize: none;
+    font-family: $roboto-slab;
+  }
+textarea{
+    border: none;
+    width: 100%;
+    padding: 10px 10px 10px 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size:15px;
+    &:focus-visible{
+        outline: none;
+    }
+}
+mat-card{
+    max-height: 500px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.icon-bars{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    min-width: fit-content;
+}
+
+  
+
+
+
+

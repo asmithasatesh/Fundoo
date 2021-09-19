@@ -111,6 +111,13 @@ mat-icon,.material-icons
 .row{
     display: flex !important;
     flex-flow: row !important;
+    width: 50px;
+}
+.mat-button-toggle-content
+{
+    display: flex !important;
+    flex-flow: row !important;
+    width: 50px;
 }
 h2{
     margin-left: 30px;
@@ -140,7 +147,6 @@ mat-drawer.mat-drawer-opened {
     visibility: visible !important;
     width: 150px !important;
     overflow: hidden!important;
-
   }
   mat-drawer.mat-drawer-opened:hover
   {

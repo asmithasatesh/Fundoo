@@ -42,7 +42,7 @@
 
         <mat-drawer-container class="example-container"  >
             <mat-drawer mode="side" #sidenav opened position="start" (mouseover)="toggle!=true?opened=!opened:''"
-            (mouseout)="toggle!=true?opened=!opened:''">
+        (mouseout)="toggle!=true?opened=!opened:''">
 
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
 
@@ -71,9 +71,10 @@
             </mat-drawer>
 
             <mat-drawer-content align="center">
-                Main content
+                <app-notes align="center"></app-notes>
             </mat-drawer-content>
 
         </mat-drawer-container>
+
     </div>
 </div>

@@ -1,0 +1,31 @@
+<mat-card *ngIf="toggle">
+    <div class="row" (click)="toggle=!toggle">
+        <h3 >Take a note ..</h3>
+        <div>
+            <i class="material-icons">check_box</i>
+            <i class="material-icons">insert_photo</i>
+        </div>
+    </div>
+</mat-card>
+<mat-card *ngIf="!toggle">
+    <div class="column">
+    <div class="row">
+        <input placeholder="Title" class="notes">
+        <i class="material-icons">push_pin</i>
+    </div>
+    <div class="row">
+        <textarea placeholder="Take a note .."  id="textarea" (keyup)="Resize()"></textarea>
+    </div>
+    <div class="icon-bars">
+        <i class="material-icons">notification_important</i>
+        <i class="material-icons">person_add_alt_1</i>
+        <i class="material-icons">color_lens</i>
+        <i class="material-icons">image</i>
+        <i class="material-icons">archive</i>
+        <i class="material-icons">more_vert</i>
+        <i class="material-icons">undo</i>
+        <i class="material-icons">redo</i>
+        <p (click)="toggle=!toggle">Close</p>
+      </div>
+</div>
+</mat-card>

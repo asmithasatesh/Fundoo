@@ -5,6 +5,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+
 var token=(JSON.parse(localStorage.getItem("ForgetPassword")!));
 const routes: Routes = [
   {path:'register', component:RegisterComponent},
