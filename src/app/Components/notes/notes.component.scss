@@ -1,7 +1,7 @@
 $roboto-slab: 'Roboto', san-serif;  
 mat-card
 {
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -9,6 +9,7 @@ mat-card
     padding: 8px !important;
     padding-bottom: 0px !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    border-radius: 10px;
     min-width: fit-content;
 }
 .row
@@ -114,7 +115,7 @@ tes-icon-menu {
 .row > .mat-menu-item{
     border-radius: 50%;
     border: 1px solid rgb(189, 186, 186);
-    width: -1px;
+    width: -15px;
     height: 30px;
     max-width: -1px !important;
     max-height: 30px !important;

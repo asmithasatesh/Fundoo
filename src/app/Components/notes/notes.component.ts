@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import{ FormControl, Validators, FormGroup} from '@angular/forms';
-
+import { CollaboratorDialogComponent } from '../collaborator-dialog/collaborator-dialog.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -14,7 +15,8 @@ toggle:boolean=true;
 expand:boolean=false;
 color:string="";
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
-  constructor(private notesService: NoteServiceService) { }
+  constructor(private notesService: NoteServiceService,
+    public dialog:MatDialog) { }
   ngOnInit(): void {
     this.NotesForm= new FormGroup({
       title: new FormControl(''),
@@ -23,6 +25,14 @@ color:string="";
   })
   }
 
+openDialog()
+{
+  let dialogRef =this.dialog.open(CollaboratorDialogComponent);
+  dialogRef.afterClosed().subscribe(result =>
+    {
+      console.log( `Dialog res: ${result}`);
+    });
+}
 
 Resize(){
   var textArea = document.getElementById("textarea")!      

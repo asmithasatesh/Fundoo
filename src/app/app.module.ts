@@ -27,6 +27,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NotesComponent } from './Components/notes/notes.component';
 import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CollaboratorDialogComponent } from './Components/collaborator-dialog/collaborator-dialog.component';
+
 
 
 @NgModule({
@@ -38,8 +41,9 @@ import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
     ResetpasswordComponent,
     DashboardComponent,
     NotesComponent,
-    TextareaAutoresizeDirective,
+    TextareaAutoresizeDirective
   ],
+
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
@@ -61,8 +65,11 @@ import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
     MatMenuModule,
     MatListModule,
     MatButtonToggleModule,
+    MatDialogModule
+
   ],
   providers: [],
+  entryComponents:[CollaboratorDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

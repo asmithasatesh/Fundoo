@@ -1,0 +1,58 @@
+hr.solid 
+  {
+    border-top: 3px solid #bbb;
+  }
+
+  ::ng-deep .mat-dialog-container {
+  
+      width: 600px !important;
+      padding: 0px !important;
+      border-radius: 15px  !important;
+
+  }
+  .row
+  {
+      display: flex;
+      padding: 0px;
+      margin: 0px;
+  }
+  .column
+  {
+      display: flex;
+      flex-flow: column;
+      padding: 0px;
+      margin: 0px;
+  }
+  .italic
+  {
+      font-style: italic;
+      margin-left: 5px;
+  }
+
+  .material-icons
+  {
+      font-size: x-large;
+  }
+  .button{
+      background-color: rgb(248, 246, 246);
+
+      display: flex;
+      flex-flow: row-reverse;
+  }
+  .button > h3 
+  {
+      margin-right: 10px;
+      cursor: pointer;
+      padding: 10px 10px 0px 10px;
+  }
+  .button > h3:hover
+  {
+      background-color: rgb(230, 228, 228);
+  }
+  h2{
+      padding-left: 15px;
+      padding-top: 10px;
+  }
+  .owner{
+      padding-top: -15px !important;
+  }

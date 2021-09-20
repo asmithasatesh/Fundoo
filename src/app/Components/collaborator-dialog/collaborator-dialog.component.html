@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Collaborators</h2>
+<hr class="solid">
+<div class="row">
+    <i class="material-icons" style="width: 40px; height: 30px; padding-left: 15px;">person</i>
+    <div class="column">
+        <div class="row">
+            <p style="font-weight: 600; padding-bottom: 0px;">{{UserDetails.firstName}} {{UserDetails.lastName}}</p>
+            <span class="italic">
+                <p>(Owner)</p>
+            </span>
+        </div>
+        <p class="owner">{{UserDetails.email}}</p>
+    </div>
+</div>
+<div class="button">
+    <h3 (click)="onNoClick()">Cancel</h3>
+    <h3 (click)="onNoClick()">Save</h3>
+</div>

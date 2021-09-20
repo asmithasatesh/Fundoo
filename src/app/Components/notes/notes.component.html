@@ -20,7 +20,7 @@
         <div class="icon-bars">
             <i class="material-icons" (click)="ReminderOption()"
                 [matMenuTriggerFor]="remindermenu">notification_important</i>
-            <i class="material-icons">person_add_alt_1</i>
+            <i class="material-icons" (click)="openDialog()">person_add_alt_1</i>
             <i class="material-icons"  [matMenuTriggerFor]="colormenu" >color_lens</i>
             <i class="material-icons">image</i>
             <i class="material-icons">archive</i>
@@ -65,30 +65,30 @@
 <mat-menu #colormenu="matMenu" yPosition="above">
   <div class="column">
    <div class="row">
-       <span mat-menu-item style="background-color: white;" (click)="cardcolor('white')" class="span">
+       <span mat-menu-item style="background-color: white;" (click)="cardcolor('white')" class="span" matTooltip="White">
         <i class="material-icons" *ngIf="color=='white'">check</i></span>
-       <span mat-menu-item style="background-color: rgb(236, 135, 135);"  (click)="cardcolor('rgb(236, 135, 135)')">
-        <i class="material-icons" *ngIf="color=='rgb(236, 135, 135)'">check</i></span>
-       <span mat-menu-item style="background-color: orange; border: black;"  (click)="cardcolor('orange')">
-        <i class="material-icons" *ngIf="color=='orange'">check</i></span>
-       <span mat-menu-item style="background-color: yellow;" (click)="cardcolor('yellow')">
-        <i class="material-icons" *ngIf="color=='yellow'">check</i></span>
+       <span mat-menu-item style="background-color: #F28B82;"  (click)="cardcolor('#F28B82')">
+        <i class="material-icons" *ngIf="color=='#F28B82'">check</i></span>
+       <span mat-menu-item style="background-color: #FBBC04; border: black;"  (click)="cardcolor('#FBBC04')">
+        <i class="material-icons" *ngIf="color=='#FBBC04'">check</i></span>
+       <span mat-menu-item style="background-color: #FFF475;" (click)="cardcolor('#FFF475')">
+        <i class="material-icons" *ngIf="color=='#FFF475'">check</i></span>
    </div>
    <div class="row">
-    <span mat-menu-item style="background-color: rgb(129, 155, 129);"  (click)="cardcolor('rgb(129, 155, 129)')">
-        <i class="material-icons" *ngIf="color=='rgb(129, 155, 129)'">check</i></span>
-    <span mat-menu-item style="background-color: rgb(91, 253, 91);" (click)="cardcolor('rgb(91, 253, 91)')">
-        <i class="material-icons" *ngIf="color=='rgb(91, 253, 91)'">check</i></span>
-    <span mat-menu-item style="background-color: rgb(117, 224, 231); border: black;"(click)="cardcolor('rgb(117, 224, 231)')">
-        <i class="material-icons" *ngIf="color=='rgb(117, 224, 231)'">check</i></span>
-    <span mat-menu-item style="background-color: rgb(101, 150, 173);" (click)="cardcolor('rgb(101, 150, 173)')">
-        <i class="material-icons" *ngIf="color=='rgb(101, 150, 173)'">check</i></span>
+    <span mat-menu-item style="background-color: #A7FFEB;"  (click)="cardcolor('#A7FFEB')">
+        <i class="material-icons" *ngIf="color=='#A7FFEB'">check</i></span>
+    <span mat-menu-item style="background-color: #CCFF90;" (click)="cardcolor('#CCFF90')">
+        <i class="material-icons" *ngIf="color=='#CCFF90'">check</i></span>
+    <span mat-menu-item style="background-color: #CBF0F8; border: black;"(click)="cardcolor('#CBF0F8')">
+        <i class="material-icons" *ngIf="color=='#CBF0F8'">check</i></span>
+    <span mat-menu-item style="background-color: #AECBFA;" (click)="cardcolor('#AECBFA')">
+        <i class="material-icons" *ngIf="color=='#AECBFA'">check</i></span>
 </div>
 <div class="row">
-    <span mat-menu-item style="background-color: rgb(230, 132, 192);" (click)="cardcolor('rgb(230, 132, 192)')"></span>
-    <span mat-menu-item style="background-color: rgb(196, 155, 206);" (click)="cardcolor('rgb(196, 155, 206)')"></span>
-    <span mat-menu-item style="background-color: rgb(211, 190, 152); border: black;" (click)="cardcolor('rgb(211, 190, 152)')"></span>
-    <span mat-menu-item style="background-color: rgb(173, 173, 169);" (click)="cardcolor('rgb(173, 173, 169)')"></span>
+    <span mat-menu-item style="background-color: #FDCFE8;" (click)="cardcolor('#FDCFE8')"></span>
+    <span mat-menu-item style="background-color: #D7AEFB;" (click)="cardcolor('#D7AEFB')"></span>
+    <span mat-menu-item style="background-color: #E6C9A8; border: black;" (click)="cardcolor('#E6C9A8')"></span>
+    <span mat-menu-item style="background-color: #E8EAED;" (click)="cardcolor('#E8EAED')"></span>
 </div>
   </div>
 </mat-menu>
