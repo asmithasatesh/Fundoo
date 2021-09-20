@@ -28,6 +28,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NotesComponent } from './Components/notes/notes.component';
 import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
     TextareaAutoresizeDirective,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
@@ -59,7 +60,7 @@ import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
     MatDividerModule,
     MatMenuModule,
     MatListModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
