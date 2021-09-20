@@ -7,21 +7,21 @@
         </div>
     </div>
 </mat-card>
-<mat-card *ngIf="!toggle">
+<mat-card *ngIf="!toggle" id="matcard">
     <div class="column" [formGroup]="NotesForm">
         <div class="row">
-            <input placeholder="Title" class="notes" formControlName='title'>
+            <input placeholder="Title" class="notes" formControlName='title'  id="title">
             <i class="material-icons">push_pin</i>
         </div>
         <div class="row">
             <textarea placeholder="Take a note .." id="textarea" (keyup)="Resize()"
-                formControlName='description'></textarea>
+                formControlName='description' id="textarea"></textarea>
         </div>
         <div class="icon-bars">
             <i class="material-icons" (click)="ReminderOption()"
                 [matMenuTriggerFor]="remindermenu">notification_important</i>
-            <i class="material-icons"  [matMenuTriggerFor]="collabmenu" >person_add_alt_1</i>
-            <i class="material-icons">color_lens</i>
+            <i class="material-icons">person_add_alt_1</i>
+            <i class="material-icons"  [matMenuTriggerFor]="colormenu" >color_lens</i>
             <i class="material-icons">image</i>
             <i class="material-icons">archive</i>
             <i class="material-icons" [matMenuTriggerFor]="moremenu" (click)="CheckContent()">more_vert</i>
@@ -61,8 +61,28 @@
             <p class="clock">Pick date and Time</p>
         </div>
     </mat-menu>
-    <mat-menu #collabmenu="matMenu" class="account-menu">
-        <button mat-menu-item style="font-size: 17px;">Add Label</button>
-        <button mat-menu-item style="font-size: 17px;" *ngIf="expand">Delete Note</button>
-    </mat-menu>
+
+<mat-menu #colormenu="matMenu" yPosition="above">
+  <div class="column">
+   <div class="row">
+       <span mat-menu-item style="background-color: white;" (click)="cardcolor('white')" class="span">
+        <i class="material-icons" *ngIf="color=='white'">check</i></span>
+       <span mat-menu-item style="background-color: rgb(236, 135, 135);"  (click)="cardcolor('rgb(236, 135, 135)')"></span>
+       <span mat-menu-item style="background-color: orange; border: black;"  (click)="cardcolor('orange')"></span>
+       <span mat-menu-item style="background-color: yellow;" (click)="cardcolor('yellow')"></span>
+   </div>
+   <div class="row">
+    <span mat-menu-item style="background-color: rgb(129, 155, 129);"  (click)="cardcolor('rgb(129, 155, 129)')"></span>
+    <span mat-menu-item style="background-color: rgb(91, 253, 91);" (click)="cardcolor('rgb(91, 253, 91)')"></span>
+    <span mat-menu-item style="background-color: rgb(117, 224, 231); border: black;"(click)="cardcolor('rgb(117, 224, 231)')"></span>
+    <span mat-menu-item style="background-color: rgb(130, 126, 150);" (click)="cardcolor('rgb(130, 126, 150)')"></span>
+</div>
+<div class="row">
+    <span mat-menu-item style="background-color: rgb(230, 132, 192);" (click)="cardcolor('rgb(230, 132, 192)')"></span>
+    <span mat-menu-item style="background-color: rgb(196, 155, 206);" (click)="cardcolor('rgb(196, 155, 206)')"></span>
+    <span mat-menu-item style="background-color: rgb(211, 190, 152); border: black;" (click)="cardcolor('rgb(211, 190, 152)')"></span>
+    <span mat-menu-item style="background-color: rgb(173, 173, 169);" (click)="cardcolor('rgb(173, 173, 169)')"></span>
+</div>
+  </div>
+</mat-menu>
 </mat-card>

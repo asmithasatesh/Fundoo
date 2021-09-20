@@ -111,3 +111,9 @@ tes-icon-menu {
 .mat-menu-item {
     line-height: 12px !important;
 }
+.row > .mat-menu-item{
+    border-radius: 50%;
+    border: 1px solid rgb(189, 186, 186);
+    width: -1px;
+    height: 30px;
+}

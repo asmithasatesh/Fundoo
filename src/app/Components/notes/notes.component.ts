@@ -12,6 +12,7 @@ export class NotesComponent implements OnInit {
 NotesForm!: FormGroup;
 toggle:boolean=true;
 expand:boolean=false;
+color:string="";
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   constructor(private notesService: NoteServiceService) { }
   ngOnInit(): void {
@@ -54,5 +55,14 @@ CreateNote()
   },(error: HttpErrorResponse) => {
   console.log(error.error.message);
 })
+}
+cardcolor(color: any){
+  var matcard = document.getElementById("matcard")!   
+  var title = document.getElementById("title")!   
+  var textarea=document.getElementById("textarea")!
+  matcard.style.backgroundColor = color;
+  title.style.backgroundColor=color;
+  textarea.style.backgroundColor=color;
+this.color=color;
 }
 }
