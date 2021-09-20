@@ -116,4 +116,11 @@ tes-icon-menu {
     border: 1px solid rgb(189, 186, 186);
     width: -1px;
     height: 30px;
+    max-width: -1px !important;
+    max-height: 30px !important;
+}
+.span
+{
+    max-width: -1px !important;
+    max-height: 30px !important;
 }

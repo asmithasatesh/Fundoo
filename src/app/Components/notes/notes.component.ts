@@ -64,5 +64,6 @@ cardcolor(color: any){
   title.style.backgroundColor=color;
   textarea.style.backgroundColor=color;
 this.color=color;
+
 }
 }
