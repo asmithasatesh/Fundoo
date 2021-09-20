@@ -39,6 +39,10 @@ else{
   this.expand=false;
 }
 }
+ReminderOption()
+{
+  
+}
 CreateNote()
 {
   console.log(this.NotesForm.value.title);

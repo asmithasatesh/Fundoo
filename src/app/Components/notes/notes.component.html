@@ -1,6 +1,6 @@
 <mat-card *ngIf="toggle">
     <div class="row" (click)="toggle=!toggle">
-        <h3 >Take a note ..</h3>
+        <h3>Take a note ..</h3>
         <div>
             <i class="material-icons">check_box</i>
             <i class="material-icons">insert_photo</i>
@@ -9,34 +9,60 @@
 </mat-card>
 <mat-card *ngIf="!toggle">
     <div class="column" [formGroup]="NotesForm">
-    <div class="row">
-        <input placeholder="Title" class="notes" formControlName='title'>
-        <i class="material-icons">push_pin</i>
+        <div class="row">
+            <input placeholder="Title" class="notes" formControlName='title'>
+            <i class="material-icons">push_pin</i>
+        </div>
+        <div class="row">
+            <textarea placeholder="Take a note .." id="textarea" (keyup)="Resize()"
+                formControlName='description'></textarea>
+        </div>
+        <div class="icon-bars">
+            <i class="material-icons" (click)="ReminderOption()"
+                [matMenuTriggerFor]="remindermenu">notification_important</i>
+            <i class="material-icons"  [matMenuTriggerFor]="collabmenu" >person_add_alt_1</i>
+            <i class="material-icons">color_lens</i>
+            <i class="material-icons">image</i>
+            <i class="material-icons">archive</i>
+            <i class="material-icons" [matMenuTriggerFor]="moremenu" (click)="CheckContent()">more_vert</i>
+            <button disabled class="button">
+                <i class="material-icons">undo</i>
+            </button>
+            <button disabled class="button">
+                <i class="material-icons">redo</i>
+            </button>
+            <button mat-button class="MovetoNext" (click)="toggle=!toggle;CreateNote()" style="font-size: 17px;"
+                matTooltip="">Close</button>
+        </div>
     </div>
-    <div class="row">
-        <textarea placeholder="Take a note .."  id="textarea" (keyup)="Resize()" formControlName='description'></textarea>
-    </div>
-    <div class="icon-bars">
-        <i class="material-icons">notification_important</i>
-        <i class="material-icons">person_add_alt_1</i>
-        <i class="material-icons">color_lens</i>
-        <i class="material-icons">image</i>
-        <i class="material-icons">archive</i>
-        <i class="material-icons"  [matMenuTriggerFor]="menu" (click)="CheckContent()">more_vert</i>
-        <mat-menu #menu="matMenu" class="account-menu">
-            <button mat-button style="font-size: 17px;"
-            >Add Label</button>
-            <button mat-button style="font-size: 17px;"
-            *ngIf="expand">Delete Note</button>
-        </mat-menu>
-        <button disabled class="button">
-            <i class="material-icons">undo</i>
-        </button>
-        <button disabled class="button">
-            <i class="material-icons">redo</i>
-        </button>
-        <button mat-button class="MovetoNext"  (click)="toggle=!toggle;CreateNote()" style="font-size: 17px;"
-        matTooltip="">Close</button>
-      </div>
-</div>
+    <mat-menu #moremenu="matMenu" class="account-menu">
+        <button mat-menu-item style="font-size: 17px;">Add Label</button>
+        <button mat-menu-item style="font-size: 17px;" *ngIf="expand">Delete Note</button>
+    </mat-menu>
+    <mat-menu #remindermenu="matMenu">
+
+        <div mat-menu-item class="space h4">
+            <h4 class="h4">Reminder:</h4>
+        </div>
+        <div mat-menu-item class="space">
+            <p>Later Today</p>
+                <p class="color">8:00 PM</p>
+        </div>
+        <div mat-menu-item class="space">
+            <p>Tomorrow</p>
+            <p class="color">8:00 AM</p>
+        </div>
+        <div mat-menu-item class="space">
+            <p>Next week</p>
+            <p class="color">Mon, 8:00 PM</p>
+        </div>
+        <div mat-menu-item  class="space">
+            <i class="material-icons" style="font-size:17px;">access_time</i>
+            <p class="clock">Pick date and Time</p>
+        </div>
+    </mat-menu>
+    <mat-menu #collabmenu="matMenu" class="account-menu">
+        <button mat-menu-item style="font-size: 17px;">Add Label</button>
+        <button mat-menu-item style="font-size: 17px;" *ngIf="expand">Delete Note</button>
+    </mat-menu>
 </mat-card>

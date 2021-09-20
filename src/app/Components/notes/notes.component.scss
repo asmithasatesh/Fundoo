@@ -25,7 +25,7 @@ mat-card
 }
 .material-icons
 {
-    background: white;
+
     color: rgb(70, 68, 68);
     margin-right: 10px;
     cursor: pointer;
@@ -43,6 +43,8 @@ input{
 }
 .column
 {
+    display: flex;
+    flex-flow: column;
     width: 100%;
 }
 textarea {
@@ -86,12 +88,26 @@ color: rgb(207, 205, 205);
     padding: 0px;
     min-height: 20px !important;
 }
-::ng-deep mat-menu-content:hover
-{
-    background-color: white !important;
-}
-.notes-icon-menu {
+tes-icon-menu {
     min-height: 20px !important;
 }
+.space
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
-
+}
+.h4
+{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+.color
+{
+    color: rgb(180, 176, 176);
+}
+.mat-menu-item {
+    line-height: 12px !important;
+}
