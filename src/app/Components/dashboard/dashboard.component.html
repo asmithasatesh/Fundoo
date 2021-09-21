@@ -25,7 +25,6 @@
                     <i class="material-icons icons" *ngIf="!isGrid" (click)="isGrid=true" matTooltip="List view">view_list</i>
                     <i class="material-icons icons" *ngIf="isGrid" (click)="isGrid=false" matTooltip="Grid View">grid_view</i>
                 </div>
-
                 <mat-icon [matMenuTriggerFor]="menu" class="account" matTooltip="Account">account_circle</mat-icon>
             </div>
 
@@ -52,6 +51,10 @@
                     <mat-button-toggle class="row">
                         <i class="material-icons">notifications_none</i>
                         <h2 *ngIf="opened || toggle">Reminders</h2>
+                    </mat-button-toggle>
+                    <mat-button-toggle class="row" *ngFor="let label of userLabel">
+                        <i class="material-icons">label_outline</i>
+                        <h2 *ngIf="opened || toggle">{{label['labelName']}}</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">edit</i>

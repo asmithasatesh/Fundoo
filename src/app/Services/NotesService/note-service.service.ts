@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpServiceService } from '../HttpService/http-service.service';
 import { environment } from 'src/environments/environment';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class NoteServiceService {
       Notes: "data.Desc",
       UserId: this.UserDetails.userId,
     };
-    this.getToken()
+    this.getToken();
     console.log(this.header);
     return this.httpService.post(`${environment.baseUrl}/api/CreateNote`, params,true,this.header);
   }
@@ -24,5 +25,12 @@ export class NoteServiceService {
     this.header = {
       headers: {Authorization: "Bearer " + this.UserDetails.userToken}
     }
+
+  }
+  GetLabel()
+  {
+    let params= new HttpParams().set('userId',this.UserDetails.userId);
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/GetLabelUsingUserId`, params,true,this.header);
   }
 }
