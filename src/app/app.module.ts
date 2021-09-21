@@ -41,7 +41,8 @@ import { CollaboratorDialogComponent } from './Components/collaborator-dialog/co
     ResetpasswordComponent,
     DashboardComponent,
     NotesComponent,
-    TextareaAutoresizeDirective
+    TextareaAutoresizeDirective,
+    CollaboratorDialogComponent
   ],
 
   imports: [

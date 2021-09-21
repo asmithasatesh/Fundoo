@@ -1,6 +1,8 @@
   
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatList } from '@angular/material/list';
 
 @Component({
   selector: 'app-collaborator-dialog',
@@ -8,14 +10,28 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./collaborator-dialog.component.scss']
 })
 export class CollaboratorDialogComponent implements OnInit {
+  searchField:any;
+
 
   constructor(    public dialogRef: MatDialogRef<CollaboratorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any
+) { }
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
-
+  emails: string[]=[]
   ngOnInit(): void {
   }
   onNoClick(): void {
     this.dialogRef.close();
   }
+  clearSearchField() {
+console.log(this.emails);
+this.emails.push(this.searchField);
+console.log(this.emails);
+    this.searchField = '';
+  }
+  RemoveCollab(email:any)
+  {
+    this.emails.splice(this.emails.indexOf(email),1);
+  }
+
 }

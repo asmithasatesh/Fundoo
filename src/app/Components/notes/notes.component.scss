@@ -69,12 +69,13 @@ mat-card{
 }
 .icon-bars{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 0px;
-    min-width: fit-content;
+    min-width: 70%;
 }
+
 .button
 {
 background: none;

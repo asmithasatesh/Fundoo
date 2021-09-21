@@ -10,6 +10,12 @@ hr.solid
       border-radius: 15px  !important;
 
   }
+  .set-height
+  {
+    max-height: 450px !important;
+    overflow-y:auto;
+
+  }
   .row
   {
       display: flex;
@@ -34,7 +40,7 @@ hr.solid
       font-size: x-large;
   }
   .button{
-      background-color: rgb(248, 246, 246);
+      background-color: rgba(0,0,0,0.07);
 
       display: flex;
       flex-flow: row-reverse;
@@ -43,11 +49,14 @@ hr.solid
   {
       margin-right: 10px;
       cursor: pointer;
-      padding: 10px 10px 0px 10px;
+      padding: 5px 7px 0px 7px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-right: 20px;
   }
   .button > h3:hover
   {
-      background-color: rgb(230, 228, 228);
+      background-color: rgba(0,0,0,.2);
   }
   h2{
       padding-left: 15px;
@@ -56,3 +65,15 @@ hr.solid
   .owner{
       padding-top: -15px !important;
   }
+  img{
+      margin-right: 15px;
+  }
+  input{
+    border: none;
+    width: 100%;
+    min-width: fit-content;
+    font-family: 'Roboto', sans-serif;
+    &:focus-visible{
+        outline: none;
+    }
+}

@@ -14,6 +14,7 @@ NotesForm!: FormGroup;
 toggle:boolean=true;
 expand:boolean=false;
 color:string="";
+
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   constructor(private notesService: NoteServiceService,
     public dialog:MatDialog) { }

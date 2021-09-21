@@ -4,15 +4,15 @@
             <div class="menu-box">
                 <button mat-icon-button mat-icon-button class="example-icon"
                     aria-label="Example icon-button with menu icon">
-                    <mat-icon (click)="sidenav.toggle();opened=!opened">menu</mat-icon>
+                    <mat-icon (click)="sidenav.toggle();opened=!opened" matTooltip="Main Menu">menu</mat-icon>
                 </button>
-                <img src="../../../assets/60595ee112518.png" width="40px" height="40px">
-                <span>Fundoo</span>
+                <img src="../../../assets/60595ee112518.png" width="40px" height="40px" matTooltip="Fundoo">
+                <span matTooltip="Fundoo">Fundoo</span>
             </div>
 
             <div class="search">
                 <mat-form-field appearance="outline">
-                    <mat-icon matPrefix class="search-icon">search</mat-icon>
+                    <mat-icon matPrefix class="search-icon" matTooltip="Search">search</mat-icon>
                     <input [(ngModel)]="searchField" matInput placeholder="Search" autocomplete="off">
                     <i class="material-icons icons" matSuffix (click)="clearSearchField()" *ngIf="searchField">clear</i>
                 </mat-form-field>
@@ -21,12 +21,12 @@
             <div class="menu-box">
 
                 <div class="menu-box">
-                    <i class="material-icons icons">refresh</i>
-                    <i class="material-icons icons" *ngIf="!isGrid" (click)="isGrid=true">view_list</i>
-                    <i class="material-icons icons" *ngIf="isGrid" (click)="isGrid=false">grid_view</i>
+                    <i class="material-icons icons" matTooltip="Refresh">refresh</i>
+                    <i class="material-icons icons" *ngIf="!isGrid" (click)="isGrid=true" matTooltip="List view">view_list</i>
+                    <i class="material-icons icons" *ngIf="isGrid" (click)="isGrid=false" matTooltip="Grid View">grid_view</i>
                 </div>
 
-                <mat-icon [matMenuTriggerFor]="menu" class="account">account_circle</mat-icon>
+                <mat-icon [matMenuTriggerFor]="menu" class="account" matTooltip="Account">account_circle</mat-icon>
             </div>
 
         </mat-toolbar>
