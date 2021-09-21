@@ -113,9 +113,7 @@ tes-icon-menu {
 {
     color: rgb(180, 176, 176);
 }
-.mat-menu-item {
-    line-height: 12px !important;
-}
+
 .row > .mat-menu-item{
     border-radius: 50%;
     border: 1px solid rgb(189, 186, 186);
@@ -132,4 +130,32 @@ tes-icon-menu {
 span.mat-focus-indicator.mat-tooltip-trigger.span.mat-menu-item{
     padding-left: 10px;
     padding-right: 10px;
+}
+.back-arrow
+{
+    border: 2px solid rgb(95, 94, 94);
+    border-radius: 50%;
+    padding: 0px;
+    cursor: pointer;
+}
+.rows
+{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.datе-picker-wrapper {
+    padding: 1rem;
+    max-width: 600px;
+}
+.mat-datepicker-toggle {
+    background: url("../../../assets/60595ee112518.png") no-repeat !important;
+}
+.space-between
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

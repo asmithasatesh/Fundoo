@@ -30,8 +30,9 @@ import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CollaboratorDialogComponent } from './Components/collaborator-dialog/collaborator-dialog.component';
 import {MatChipsModule} from '@angular/material/chips';
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule,
     MatButtonToggleModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
 
   ],
   providers: [],

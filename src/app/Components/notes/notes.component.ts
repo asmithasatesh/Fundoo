@@ -9,6 +9,7 @@ import {MatChipInputEvent} from '@angular/material/chips';
 export interface Fruit {
   name: string;
 }
+
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -22,6 +23,7 @@ expand:boolean=false;
 color:string="";
 pin:boolean=false;
 pickDate:boolean=false;
+public date = new Date();
 
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   selectable = true;
@@ -29,7 +31,11 @@ pickDate:boolean=false;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [];
-
+  time:string='8:AM';
+  selected = this.time;
+  monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+];
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
@@ -55,7 +61,7 @@ pickDate:boolean=false;
     this.NotesForm= new FormGroup({
       title: new FormControl(''),
       description: new FormControl(''),
-      label: new FormControl('')
+      label: new FormControl(''),
   })
   }
 
@@ -67,7 +73,27 @@ openDialog()
       console.log( `Dialog res: ${result}`);
     });
 }
+SaveChange()
+{
 
+ this.fruits.pop();
+ let day=''
+ let currDate= new Date();
+ console.log(this.date);
+ console.log(currDate);
+ if(this.date.getDate() == currDate.getDate())
+ {
+   day="Today";
+ }
+ else if(this.date.getDate() == new Date(currDate.setDate(currDate.getDate() + 1)).getDate())
+ {
+   day= "Tomorrow"
+ }
+ else{
+   day = this.monthNames[this.date.getMonth()]+" "+ this.date.getDate().toString();
+ }
+ this.fruits.push({name: day+", "+this.selected});
+}
 Resize(){
   var textArea = document.getElementById("textarea")!      
   textArea.style.height = 'auto';
@@ -110,20 +136,29 @@ cardcolor(color: any){
 this.color=color;
 
 }
-monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
-];
+
 SetDate(date:string)
 {
-  console.log(date);
-  if(date == 'set')
+  if(this.fruits.length < 1)
   {
-    let nextDate= this.getMonday(new Date());
-    date=  this.monthNames[nextDate.getMonth()] +" "+nextDate.getDate().toString() + ", 8:00 AM"
     console.log(date);
+    if(date == 'set')
+    {
+      let nextDate= this.getMonday(new Date());
+      date=  this.monthNames[nextDate.getMonth()] +" "+nextDate.getDate().toString() + ", 8:00 AM"
+      console.log(date);
+      this.date=nextDate;
+      this.time="8:AM";
+    }
+    else if(date == 'Tomorrow, 8:00AM')
+    {
+      this.date=new Date(this.date.setDate(this.date.getDate() + 1));
+      console.log(this.date);
+      this.time="8:AM";
+    }
+    this.fruits.push({name: date});
+    this.pickDate=!this.pickDate;
   }
-  this.fruits.push({name: date});
-  this.pickDate=!this.pickDate;
 }
 getMonday(d:any) {
   d = new Date(d);
@@ -131,4 +166,5 @@ getMonday(d:any) {
       diff = d.getDate() + day + (day == 0 ? 6:4); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
+
 }
