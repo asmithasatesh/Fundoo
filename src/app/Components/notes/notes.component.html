@@ -2,8 +2,8 @@
     <div class="row" (click)="toggle=!toggle">
         <h3>Take a note ..</h3>
         <div>
-            <i class="material-icons">check_box</i>
-            <i class="material-icons">insert_photo</i>
+            <i class="material-icons-outlined">check_box</i>
+            <i class="material-icons-outlined">insert_photo</i>
         </div>
     </div>
 </mat-card>
@@ -11,52 +11,60 @@
     <div class="column" [formGroup]="NotesForm">
         <div class="row">
             <input placeholder="Title" class="notes" formControlName='title'  id="title">
-            <i class="material-icons" matTooltip="Pin">push_pin</i>
+            <i class="material-icons-outlined" matTooltip="Pin" *ngIf="!pin" (click)="pin=!pin">push_pin</i>
+            <i class="material-icons" matTooltip="Pin" *ngIf="pin" style="color: black;" (click)="pin=!pin"  style="margin-right: 10px;">push_pin</i>
         </div>
         <div class="row">
             <textarea placeholder="Take a note .." id="textarea" (keyup)="Resize()"
                 formControlName='description' id="textarea"></textarea>
         </div>
+        <mat-form-field class="example-chip-list" appearance="fill" *ngIf="fruits.length>0">
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                       [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </mat-form-field>
         <div class="row">
         <div class="icon-bars" style="margin-top: 10px; margin-bottom: 10px;">
-            <i class="material-icons" (click)="ReminderOption()"
-                [matMenuTriggerFor]="remindermenu" matTooltip="Remind me">notification_important</i>
-            <i class="material-icons" (click)="openDialog()" matTooltip="Collaborator">person_add_alt_1</i>
-            <i class="material-icons"  [matMenuTriggerFor]="colormenu" matTooltip="Change Color">color_lens</i>
-            <i class="material-icons" matTooltip="Add Image">image</i>
-            <i class="material-icons" matTooltip="Archive">archive</i>
+            <i class="material-icons-outlined" (click)="ReminderOption()"
+                [matMenuTriggerFor]="pickDate?Pickdate:remindermenu" matTooltip="Remind me">notification_important</i>
+            <i class="material-icons-outlined" (click)="openDialog()" matTooltip="Collaborator">person_add_alt_1</i>
+            <i class="material-icons-outlined"  [matMenuTriggerFor]="colormenu" matTooltip="Change Color">color_lens</i>
+            <i class="material-icons-outlined" matTooltip="Add Image">image</i>
+            <i class="material-icons-outlined" matTooltip="Archive">archive</i>
             <i class="material-icons" [matMenuTriggerFor]="moremenu" (click)="CheckContent()"  matTooltip="More">more_vert</i>
-            <button disabled class="button">
-                <i class="material-icons">undo</i>
-            </button>
-            <button disabled class="button">
-                <i class="material-icons">redo</i>
-            </button>
+
         </div>
         <button mat-button class="MovetoNext" (click)="toggle=!toggle;CreateNote()" style="font-size: 17px;"
         matTooltip="" style="padding-left: 10px; padding-right: 10px;">Close</button>
         </div>
     </div>
+    <mat-menu #Pickdate class="account-menu">
+        
+    </mat-menu>
     <mat-menu #moremenu="matMenu" class="account-menu">
         <button mat-menu-item style="font-size: 17px;">Add Label</button>
         <button mat-menu-item style="font-size: 17px;" *ngIf="expand">Delete Note</button>
     </mat-menu>
-    <mat-menu #remindermenu="matMenu">
+    <mat-menu #remindermenu>
 
         <div mat-menu-item class="space h4">
             <h4 class="h4">Reminder:</h4>
         </div>
-        <div mat-menu-item class="space">
+        <div mat-menu-item class="space" (click)="SetDate('Today, 8:00PM')">
             <p>Later Today</p>
                 <p class="color">8:00 PM</p>
         </div>
-        <div mat-menu-item class="space">
+        <div mat-menu-item class="space"  (click)="SetDate('Tomorrow, 8:00AM')">
             <p>Tomorrow</p>
             <p class="color">8:00 AM</p>
         </div>
-        <div mat-menu-item class="space">
+        <div mat-menu-item class="space"  (click)="SetDate('set')">
             <p>Next week</p>
-            <p class="color">Mon, 8:00 PM</p>
+            <p class="color">Mon, 8:00 AM</p>
         </div>
         <div mat-menu-item  class="space">
             <i class="material-icons" style="font-size:17px;">access_time</i>

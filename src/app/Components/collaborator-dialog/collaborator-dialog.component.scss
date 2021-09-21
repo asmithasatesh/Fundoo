@@ -12,9 +12,27 @@ hr.solid
   }
   .set-height
   {
-    max-height: 450px !important;
+    max-height: 350px !important;
     overflow-y:auto;
 
+  }
+  .set-height::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .set-height::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .set-height::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  .set-height::-webkit-scrollbar-thumb:hover {
+    background: #555; 
   }
   .row
   {

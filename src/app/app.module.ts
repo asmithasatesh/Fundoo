@@ -29,7 +29,7 @@ import { NotesComponent } from './Components/notes/notes.component';
 import { TextareaAutoresizeDirective } from './textarea-autoresize.directive';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CollaboratorDialogComponent } from './Components/collaborator-dialog/collaborator-dialog.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -66,7 +66,8 @@ import { CollaboratorDialogComponent } from './Components/collaborator-dialog/co
     MatMenuModule,
     MatListModule,
     MatButtonToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
 
   ],
   providers: [],
