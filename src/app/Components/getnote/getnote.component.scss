@@ -1,0 +1,44 @@
+
+mat-card
+{
+    display: flex;
+    flex-flow: column;
+    flex: 1 auto;
+    overflow:hidden;
+    padding: 0px !important;
+    max-height: 600px;
+    min-height: fit-content !important;
+    width: 240px;
+    max-width: 240px;
+    border-radius: 10px;
+    margin: 10px;
+    
+}
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 80%;
+  }
+  .row
+  {
+      margin-left: 15px;
+      display: flex;
+      justify-content: space-between;
+  }
+  .main-div mat-card {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid; /* Firefox is dumb */
+    break-inside: avoid;
+  }
+  .contents
+  {
+      padding: 10px;
+      margin-top: 10px;
+  }
+  /*
+.main-div{
+    -webkit-rows: 20em;
+    -moz-rows: 600px;
+    columns: 25em;
+}
+*/
