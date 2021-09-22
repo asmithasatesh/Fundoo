@@ -18,7 +18,8 @@ export class NoteServiceService {
       UserId: this.UserDetails.userId,
       Color: data.color,
       Archive:data.archive,
-      Pin:data.pin
+      Pin:data.pin,
+      Remainder:data.reminder
     };
     this.getToken();
     console.log(this.header);

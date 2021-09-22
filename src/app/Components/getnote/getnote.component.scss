@@ -35,6 +35,18 @@ mat-card img{
       padding: 10px;
       margin-top: 10px;
   }
+  .icon-hover
+  {
+      display: none;
+      cursor: pointer;
+  }
+  .reminder:hover{
+      cursor: pointer;
+    .icon-hover
+    {
+        display: block;
+    }
+  }
   /*
 .main-div{
     -webkit-rows: 20em;

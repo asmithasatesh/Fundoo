@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 @Component({
   selector: 'app-getnote',
   templateUrl: './getnote.component.html',
@@ -8,7 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class GetnoteComponent implements OnInit {
 
-  constructor(private notesService: NoteServiceService) { }
+  constructor(private notesService: NoteServiceService,
+    public dialog: MatDialog) { }
   pin:boolean=false;
   userNotes:any;
   ngOnInit(): void {
@@ -25,5 +28,9 @@ export class GetnoteComponent implements OnInit {
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
   })
+  }
+  OpenCard()
+  {
+    this.dialog.open(CardDialogComponent);
   }
 }

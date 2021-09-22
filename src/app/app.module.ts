@@ -34,6 +34,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { GetnoteComponent } from './Components/getnote/getnote.component';
+import { CardDialogComponent } from './Components/card-dialog/card-dialog.component';
+import { IconsComponent } from './Components/icons/icons.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import { GetnoteComponent } from './Components/getnote/getnote.component';
     NotesComponent,
     TextareaAutoresizeDirective,
     CollaboratorDialogComponent,
-    GetnoteComponent
+    GetnoteComponent,
+    CardDialogComponent,
+    IconsComponent
   ],
 
   imports: [
@@ -77,7 +81,7 @@ import { GetnoteComponent } from './Components/getnote/getnote.component';
 
   ],
   providers: [],
-  entryComponents:[CollaboratorDialogComponent],
+  entryComponents:[CollaboratorDialogComponent,CardDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
