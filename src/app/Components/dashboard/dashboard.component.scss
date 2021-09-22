@@ -101,6 +101,7 @@ mat-icon,.material-icons
 h2{
     margin-left: 30px;
     font-size: medium;
+    padding-top: 5px;
 }
 
 .mat-button-toggle-standalone, .mat-button-toggle-group {
@@ -109,11 +110,13 @@ h2{
     flex-direction: column !important;
     margin: 0px !important;
     padding: 0px !important;
+
 }
 mat-drawer:not(.mat-drawer-opened) {
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
     width: 250px !important;
+    margin-right: 500px;
     overflow: hidden!important;
     color: rgb(128, 125, 126);
   }
@@ -122,7 +125,10 @@ mat-drawer:not(.mat-drawer-opened) {
     min-height: 650px;
     width: 100%;
   }
-
+mat-drawer
+{
+    border-right: none !important;
+}
 .mat-drawer-container
 {
     margin-right: 100px;
@@ -152,6 +158,8 @@ mat-drawer:not(.mat-drawer-opened) {
     }
     mat-drawer.mat-drawer-opened {
         color: rgb(128, 125, 126);
+
+        width: 250px !important;
         .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
 
             background-color:white !important;
@@ -192,7 +200,10 @@ padding: 10px !important;
 .mat-menu-panel {
     min-height: 20px !important;
 }
-
+mat-drawer-content
+{
+    margin-left: 200px !important;
+}
 
 
 

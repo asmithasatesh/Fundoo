@@ -90,7 +90,7 @@ color: rgb(207, 205, 205);
 }
 
 .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
-    padding: 0px;
+    padding: 0px 15px;
     min-height: 20px !important;
 }
 tes-icon-menu {
@@ -101,12 +101,16 @@ tes-icon-menu {
     display: flex;
     justify-content: space-between;
     width: 100%;
-
+    align-items: center;
+}
+.mat-menu-content ng-tns-c117-8
+{
+    width: 500px;
 }
 .h4
 {
     margin-top: 10px;
-    padding-bottom: 10px;
+
     font-weight: 500;
 }
 .color
@@ -158,4 +162,46 @@ span.mat-focus-indicator.mat-tooltip-trigger.span.mat-menu-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+::ng-deep #mat-menu-panel-3
+{
+    width: 600px !important;
+}
+.pick-date
+{
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    justify-content: left;
+}
+
+::ng-deep .mat-chip {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+hr {
+    display: block;
+    margin: 3px 0 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, .12);
+    background-color: rgb(160, 156, 156);
+    width: 100%
+  }
+  mat-divider {
+    width: 100%;
+}
+::ng-deep .mat-form-field-infix:focus-visible
+{
+    box-shadow: none !important;
+}
+.save-button
+{
+    padding: 10px 20px; 
+    border-radius: 5px;float: right; 
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-size: medium;
+}
+.save-button:hover{
+    background-color: rgb(230, 227, 227);
 }

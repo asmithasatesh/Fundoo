@@ -23,6 +23,7 @@ expand:boolean=false;
 color:string="";
 pin:boolean=false;
 pickDate:boolean=false;
+archive:boolean=false;
 public date = new Date();
 
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
@@ -31,8 +32,8 @@ public date = new Date();
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [];
-  time:string='8:AM';
-  selected = this.time;
+  time:string='8:PM';
+  selected:string='';
   monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
 ];
@@ -60,9 +61,9 @@ public date = new Date();
   ngOnInit(): void {
     this.NotesForm= new FormGroup({
       title: new FormControl(''),
-      description: new FormControl(''),
-      label: new FormControl(''),
+      description: new FormControl('')
   })
+
   }
 
 openDialog()
@@ -116,12 +117,19 @@ ReminderOption()
 }
 CreateNote()
 {
+  let obj={
+    title: this.NotesForm.value.title,
+    desc: this.NotesForm.value.description,
+    color: this.color,
+    archive:this.archive,
+    pin: this.pin
+  }
   console.log(this.NotesForm.value.title);
-  this.notesService.CreateNote('')
+  this.notesService.CreateNote(obj)
 .subscribe(
   (status: any) => 
   {
-
+  console.log(status.message);
   },(error: HttpErrorResponse) => {
   console.log(error.error.message);
 })
@@ -139,8 +147,11 @@ this.color=color;
 
 SetDate(date:string)
 {
-  if(this.fruits.length < 1)
+  if(this.fruits.length == 1)
   {
+    this.fruits.pop();
+    this.pickDate=!this.pickDate;
+  }
     console.log(date);
     if(date == 'set')
     {
@@ -156,14 +167,14 @@ SetDate(date:string)
       console.log(this.date);
       this.time="8:AM";
     }
+    this.selected=this.time;
     this.fruits.push({name: date});
     this.pickDate=!this.pickDate;
-  }
 }
 getMonday(d:any) {
   d = new Date(d);
   var day = d.getDay(),
-      diff = d.getDate() + day + (day == 0 ? 6:4); // adjust when day is sunday
+      diff = d.getDate() + day + (day == 1 ? 6:(5-day)); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
 

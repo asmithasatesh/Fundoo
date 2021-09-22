@@ -13,9 +13,12 @@ export class NoteServiceService {
   CreateNote(data: any) {
    
     let params = {
-      Title: "hi",
-      Notes: "data.Desc",
+      Title: data.title,
+      Description: data.desc,
       UserId: this.UserDetails.userId,
+      Color: data.color,
+      Archive:data.archive,
+      Pin:data.pin
     };
     this.getToken();
     console.log(this.header);

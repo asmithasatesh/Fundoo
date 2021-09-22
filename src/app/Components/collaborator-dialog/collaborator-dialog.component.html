@@ -16,7 +16,7 @@
     <div class="row" *ngFor="let email of emails" style=" margin-top: 8px; margin-bottom: 10px;">
         <img src="../../../assets/collabs.png" width="33px" height="33px" style=" padding-left: 15px;">
         <input placeholder="Person or email to share with" style="font-weight: 400;" [value]="email" readonly>
-        <i class="material-icons icons" matSuffix style="padding-right: 10px;" (click)="RemoveCollab(email)">clear</i>
+        <i class="material-icons icons" matSuffix style="padding-right: 10px; cursor: pointer;" (click)="RemoveCollab(email)">clear</i>
     </div>
 
     <div class="row" style=" margin-top: 10px; margin-bottom: 20px;">
@@ -24,10 +24,10 @@
             style="margin-left: 15px; margin-right: 10px; border: 2px solid rgb(122, 121, 121); border-radius: 50%; padding: 5px; color: rgb(141, 139, 139);">person_add</i>
         <input placeholder="Person or email to share with" style="font-weight: 300;" [(ngModel)]="searchField">
         <i class="material-icons icons" matSuffix (click)="clearSearchField()" *ngIf="searchField"
-            style="padding-right: 10px;">check</i>
+            style="padding-right: 10px; cursor: pointer;">check</i>
     </div>
 </div>
 <div class="button">
-    <h3 (click)="onNoClick()">Cancel</h3>
     <h3 (click)="onNoClick()">Save</h3>
+    <h3 (click)="onNoClick()">Cancel</h3>
 </div>
