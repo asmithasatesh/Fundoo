@@ -40,7 +40,12 @@
                 <i class="material-icons-outlined" (click)="openDialog()" matTooltip="Collaborator">person_add_alt_1</i>
                 <i class="material-icons-outlined" [matMenuTriggerFor]="colormenu"
                     matTooltip="Change Color">color_lens</i>
-                <i class="material-icons-outlined" matTooltip="Add Image">image</i>
+
+                <label for="image">
+                    <input type="file" name="image"  accept="image/*" id="image" style="display:none;" (change)="OnselectFile($event)"/>
+                    <i class="material-icons-outlined" matTooltip="Add Image" >image</i>
+                 </label>
+
                 <i class="material-icons-outlined" (click)="archive=!archive && pin?false:true"
                     matTooltip="Archive">archive</i>
                 <i class="material-icons-outlined" [matMenuTriggerFor]="moremenu" (click)="CheckContent()"

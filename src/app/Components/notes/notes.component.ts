@@ -25,6 +25,7 @@ pin:boolean=false;
 pickDate:boolean=false;
 archive:boolean=false;
 public date = new Date();
+reminder:any;
 
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   selectable = true;
@@ -34,6 +35,8 @@ public date = new Date();
   fruits: Fruit[] = [];
   time:string='8:PM';
   selected:string='';
+  file:any;
+
   monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
 ];
@@ -74,6 +77,11 @@ openDialog()
       console.log( `Dialog res: ${result}`);
     });
 }
+OnselectFile(files: any)
+{
+  this.file= files.target.files.item(0);
+  console.log(this.file);
+}
 SaveChange()
 {
 
@@ -93,7 +101,8 @@ SaveChange()
  else{
    day = this.monthNames[this.date.getMonth()]+" "+ this.date.getDate().toString();
  }
- this.fruits.push({name: day+", "+this.selected});
+ this.reminder=day+", "+this.selected;
+ this.fruits.push({name: this.reminder});
 }
 Resize(){
   var textArea = document.getElementById("textarea")!      
@@ -122,7 +131,9 @@ CreateNote()
     desc: this.NotesForm.value.description,
     color: this.color,
     archive:this.archive,
-    pin: this.pin
+    pin: this.pin,
+    reminder: this.reminder
+
   }
   console.log(this.NotesForm.value.title);
   this.notesService.CreateNote(obj)
@@ -142,7 +153,6 @@ cardcolor(color: any){
   title.style.backgroundColor=color;
   textarea.style.backgroundColor=color;
 this.color=color;
-
 }
 
 SetDate(date:string)
@@ -168,13 +178,14 @@ SetDate(date:string)
       this.time="8:AM";
     }
     this.selected=this.time;
+    this.reminder=date;
     this.fruits.push({name: date});
     this.pickDate=!this.pickDate;
 }
 getMonday(d:any) {
   d = new Date(d);
   var day = d.getDay(),
-      diff = d.getDate() + day + (day == 1 ? 6:(6-day)); // adjust when day is sunday
+      diff = d.getDate() + day + (day == 1 ? 6:(5-day)); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
 
