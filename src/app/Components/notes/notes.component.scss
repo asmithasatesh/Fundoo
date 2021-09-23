@@ -71,6 +71,7 @@ mat-card{
     display: flex;
     justify-content: space-between;
     padding-right: 10px;
+    cursor: pointer;
     padding-bottom: 5px;
     padding-top: 0px;
     min-width: 50%;
@@ -95,6 +96,13 @@ color: rgb(207, 205, 205);
 }
 tes-icon-menu {
     min-height: 20px !important;
+}
+.material-icons .material-icons-outlined
+{
+    cursor: pointer;
+}
+::ng-deep .column > .row > span{
+    overflow-x: hidden !important;
 }
 .space
 {

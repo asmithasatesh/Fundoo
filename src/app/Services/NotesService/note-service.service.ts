@@ -86,4 +86,12 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.delete(`${environment.baseUrl}/api/EmptyTrash?userId=${this.UserDetails.userId}`,true,this.header); 
   }
+  SetColor(notesId:any,color:string)
+  {
+    let params= new HttpParams().set('notesId',notesId).set('color',color);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/SetColor`, params,true,this.header); 
+  }
+  
+
 }

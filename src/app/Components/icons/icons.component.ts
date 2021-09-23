@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import {MatSnackBar,  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -7,9 +10,52 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class IconsComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private snack: MatSnackBar,
+    private notesService: NoteServiceService) { }
   @Input() note!:any;
   ngOnInit(): void {
   }
 
+  
+horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
+colorList = [ [
+    { color: "white", tip: "white" },
+    { color: "#F28B82", tip: "Red" },
+    { color: "#FBBC04", tip: "Orange" },
+    { color: "#FFF475", tip: "Yellow" },
+  ],
+  [
+    { color: "#A7FFEB", tip: "Teal" },
+    {color:"#CCFF90",tip:"Green"},
+    { color: "#CBF0F8", tip: "Blue" },
+    { color: "#AECBFA", tip: "Dark Blue" },
+  ],
+  [
+    { color: "#FDCFE8", tip: "Pink" },
+    { color: "#D7AEFB", tip: "Purple" },
+    { color: "#E6C9A8", tip: "Brown" },
+    { color: "#E8EAED", tip: "Gray" },
+  ]]
+
+openSnackBar(message: string) {
+  this.snack.open(message,'',{duration:3000,
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,});
+}
+
+SetColor(color:any)
+{
+  this.notesService.SetColor(this.note.notesId,color)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.message);
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+
+}
 }

@@ -2,7 +2,7 @@
     <div class="icon-bars" style="margin-top: 0px; margin-bottom: 10px;">
         <i class="material-icons-outlined" matTooltip="Remind me">notification_important</i>
         <i class="material-icons-outlined" matTooltip="Collaborator">person_add_alt_1</i>
-        <i class="material-icons-outlined" matTooltip="Change Color">color_lens</i>
+        <i class="material-icons-outlined" matTooltip="Change Color"  [matMenuTriggerFor]="ChangeColor">color_lens</i>
 
         <label for="image">
             <input type="file" name="image" accept="image/*" id="image" style="display:none;" />
@@ -11,6 +11,14 @@
         <i class="material-icons-outlined" matTooltip="Archive" *ngIf="note.archive == false">archive</i>
         <i class="material-icons-outlined"  *ngIf="note.archive == true">unarchive</i>
         <i class="material-icons-outlined" matTooltip="More">more_vert</i>
-
     </div>
+
+    <!--  Menu bar-->
+    <mat-menu #ChangeColor="matMenu" style="margin: 0px; padding: 2px;">
+            <div style="display: flex;" *ngFor="let colorline of colorList">
+                <div *ngFor="let color of colorline" style="padding: 5px;">
+                    <button [ngStyle]="{ 'background-color': color.color}" mat-fab style="max-width: 30px; max-height: 30px; box-shadow: none; border: 1px solid gray;" matTooltip="{{color.tip}}" (click)="SetColor(color.color)"></button>
+                </div>
+            </div>
+    </mat-menu>
 

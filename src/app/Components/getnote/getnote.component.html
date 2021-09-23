@@ -1,14 +1,14 @@
 <div class="main-div" style="  display: flex;
 flex-wrap: wrap;
 align-items:flex-start; margin-left: 150px;">
-    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of userNotes" (click)="OpenCard()">
+    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of userNotes">
         <img src='{{note.image}}' alt='' style="margin-bottom: 5px;" *ngIf=" note.image != null">
         <div class="contents">
         <div class="row">
             <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
             <i class="material-icons-outlined hover" matTooltip="Pin" *ngIf="note.pin == false"
                 >push_pin</i>
-            <i class="material-icons hover" matTooltip="UnPin"style="color: black;"
+            <i class="material-icons hover" matTooltip="UnPin" style="color: black;"
                 style="margin-right: 10px;" *ngIf="note.pin == true">push_pin</i>
         </div>
         <div style="margin: 20px;">

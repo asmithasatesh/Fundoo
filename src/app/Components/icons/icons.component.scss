@@ -7,4 +7,12 @@
     padding-bottom: 5px;
     padding-top: 0px;
 }
-
+.material-icons-outlined
+{
+    cursor: pointer;
+}
+::ng-deep .mat-menu-content .ng-tns-c117-11
+{
+    padding: 5px !important;
+    overflow-y: hidden !important;
+}
