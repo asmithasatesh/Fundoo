@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CardDialogComponent } from '../card-dialog/card-dialog.component';
-
+import {MatSnackBar,  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+  
 @Component({
   selector: 'app-trash',
   templateUrl: './trash.component.html',
@@ -10,9 +12,12 @@ import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 })
 export class TrashComponent implements OnInit {
 
-  constructor(private notesService: NoteServiceService) { }
+  constructor(private notesService: NoteServiceService,
+    private snack: MatSnackBar) { }
   pin:any;
   trashNotes:any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   ngOnInit(): void {
     this.TrashNote();
   }
@@ -38,6 +43,7 @@ export class TrashComponent implements OnInit {
       (status: any) => 
       {
       console.log(status.status);
+      this.openSnackBar(status.message);
 
       },(error: HttpErrorResponse) => {
       console.log("error"+error.error.message);
@@ -51,11 +57,31 @@ export class TrashComponent implements OnInit {
       (status: any) => 
       {
       console.log(status.status);
+      this.openSnackBar(status.message);
 
       },(error: HttpErrorResponse) => {
       console.log("error"+error.error.message);
       console.log(this.trashNotes)
     })
 
+  }
+  EmptyTrash()
+  {
+    this.notesService.EmptyTrash()
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.status);
+      this.openSnackBar(status.message);
+
+      },(error: HttpErrorResponse) => {
+      console.log("error"+error.error.message);
+      console.log(this.trashNotes)
+    })
+  }
+  openSnackBar(message: string) {
+    this.snack.open(message,'',{duration:3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,});
   }
 }

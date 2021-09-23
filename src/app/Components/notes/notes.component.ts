@@ -6,6 +6,8 @@ import { CollaboratorDialogComponent } from '../collaborator-dialog/collaborator
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
+import {MatSnackBar,  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 export interface Fruit {
   name: string;
 }
@@ -26,7 +28,8 @@ pickDate:boolean=false;
 archive:boolean=false;
 public date = new Date();
 reminder:any;
-
+horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   selectable = true;
   removable = true;
@@ -59,7 +62,8 @@ reminder:any;
     }
   }
   constructor(private notesService: NoteServiceService,
-    public dialog:MatDialog) { }
+    public dialog:MatDialog,
+    private snack: MatSnackBar) { }
   ngOnInit(): void {
     this.NotesForm= new FormGroup({
       title: new FormControl(''),
@@ -142,6 +146,7 @@ CreateNote()
   (status: any) => 
   {
   console.log(status.notesId);
+  this.openSnackBar(status.message);
   if(this.file != null)
   {
   console.log("image present");
@@ -163,6 +168,11 @@ AddImage(notesId:any)
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
   })
+}
+openSnackBar(message: string) {
+  this.snack.open(message,'',{duration:3000,
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,});
 }
 cardcolor(color: any){
   var matcard = document.getElementById("matcard")!   

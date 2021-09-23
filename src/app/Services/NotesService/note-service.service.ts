@@ -81,5 +81,9 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.put(`${environment.baseUrl}/api/RestoreTrash`, params,true,this.header); 
   }
-
+  EmptyTrash()
+  {
+    this.getToken();
+    return this.httpService.delete(`${environment.baseUrl}/api/EmptyTrash?userId=${this.UserDetails.userId}`,true,this.header); 
+  }
 }

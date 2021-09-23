@@ -1,4 +1,4 @@
-<button mat-flat-button class="buttons" style="margin-top: 30px; margin-bottom: 20px;"  *ngIf="trashNotes != undefined" >Empty Trash</button>
+<button mat-flat-button class="buttons" style="margin-top: 30px; margin-bottom: 20px;"  *ngIf="trashNotes != undefined" (click)=" EmptyTrash()">Empty Trash</button>
 <div class="main-div" style="  display: flex;
 flex-wrap: wrap;
 align-items:flex-start; margin-left: 150px;">
