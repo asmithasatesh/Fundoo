@@ -1,6 +1,6 @@
 <div class="main-div" style="  display: flex;
 flex-wrap: wrap;
-align-items:flex-start; margin-left: 50px;">
+align-items:flex-start;  margin-left: 150px;">
     <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of reminderNotes">
         <img src='{{note.image}}' alt='' style="margin-bottom: 5px;" *ngIf=" note.image != null">
         <div class="contents">
@@ -14,12 +14,13 @@ align-items:flex-start; margin-left: 50px;">
         <div style="margin: 20px;">
             <p style="margin-top: -15px;">{{note.description}}</p>
         </div>
-        <div class="reminder" style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 20px;" *ngIf="note.remainder != null">
+        <div class="reminder" style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 25px;" *ngIf="note.remainder != null">
+            <i class="material-icons " style=" font-size: medium; padding-left: 8px;">access_time</i>
             <p style="padding: 10px 5px 0px 5px;font-size: 12px;" >{{note.remainder}}</p>
             <i class="material-icons icon-hover" style="margin-bottom: 5px;">close</i>
         </div>
     </div>
-    <app-icons></app-icons>
+    <app-icons [note]="note"></app-icons>
     </mat-card>
 
 </div>

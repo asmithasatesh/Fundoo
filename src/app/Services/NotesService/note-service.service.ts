@@ -49,4 +49,10 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.post(`${environment.baseUrl}/api/GetReminder`, params,true,this.header); 
   }
+  GetArchive()
+  {
+    let params= new HttpParams().set('userId',this.UserDetails.userId);
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/GetArchive`, params,true,this.header); 
+  }
 }

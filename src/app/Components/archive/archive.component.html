@@ -1,7 +1,7 @@
 <div class="main-div" style="  display: flex;
 flex-wrap: wrap;
-align-items:flex-start; margin-left: 150px;">
-    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of userNotes" (click)="OpenCard()">
+align-items:flex-start; margin-left: 150px; margin-top: 30px;">
+    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of archiveNotes" >
         <img src='{{note.image}}' alt='' style="margin-bottom: 5px;" *ngIf=" note.image != null">
         <div class="contents">
         <div class="row">

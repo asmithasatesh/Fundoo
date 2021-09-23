@@ -37,6 +37,7 @@ import { GetnoteComponent } from './Components/getnote/getnote.component';
 import { CardDialogComponent } from './Components/card-dialog/card-dialog.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { ReminderComponent } from './Components/reminder/reminder.component';
+import { ArchiveComponent } from './Components/archive/archive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { ReminderComponent } from './Components/reminder/reminder.component';
     GetnoteComponent,
     CardDialogComponent,
     IconsComponent,
-    ReminderComponent
+    ReminderComponent,
+    ArchiveComponent
   ],
 
   imports: [
