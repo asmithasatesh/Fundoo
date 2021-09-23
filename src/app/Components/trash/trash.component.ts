@@ -28,6 +28,34 @@ export class TrashComponent implements OnInit {
     },(error: HttpErrorResponse) => {
     console.log("error"+error.error.message);
     console.log(this.trashNotes)
-  })
+  });
+  }
+  DeleteTrash(note:any)
+  {
+    console.log(note.notesId);
+    this.notesService.DeleteTrash(note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.status);
+
+      },(error: HttpErrorResponse) => {
+      console.log("error"+error.error.message);
+      console.log(this.trashNotes)
+    })
+  }
+  RestoreTrash(note:any)
+  {    console.log(note.notesId);
+    this.notesService.RestoreTrash(note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.status);
+
+      },(error: HttpErrorResponse) => {
+      console.log("error"+error.error.message);
+      console.log(this.trashNotes)
+    })
+
   }
 }

@@ -61,4 +61,25 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.post(`${environment.baseUrl}/api/GetTrash`, params,true,this.header); 
   }
+  DeleteTrash(notesId: any)
+  {   
+  this.getToken();
+  return this.httpService.delete(`${environment.baseUrl}/api/DeleteNote?notesId=${notesId}`,true,this.header); 
+  }
+  AddImage(notesId:any,file:any)
+  {
+    let image = new FormData();
+    image.append("image",file);
+
+      this.getToken();
+      return this.httpService.put(`${environment.baseUrl}/api/AddImage?notes=${notesId}&userId=${this.UserDetails.userId}`, image,true,this.header); 
+      
+  }
+  RestoreTrash(noteId: any)
+  {
+    let params= new HttpParams().set('notesId',noteId);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/RestoreTrash`, params,true,this.header); 
+  }
+
 }

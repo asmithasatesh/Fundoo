@@ -20,5 +20,10 @@ export class HttpServiceService {
  console.log(url,data+"value");
  return this.http.put(url,data,isHeaderRequired && headers);
   }
+  delete(url: string,isHeaderRequired: any=false, headers= null)
+  { 
+
+    return this.http.delete(url,isHeaderRequired && headers);
+  }
  
 }

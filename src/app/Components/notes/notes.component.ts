@@ -78,7 +78,9 @@ openDialog()
 }
 OnselectFile(files: any)
 {
-  this.file= files.target.files.item(0);
+  console.log(files.target.files[0]);
+  var imageFile= new File(files.target.files[0] , files.target.files[0].name);
+  this.file=imageFile;
   console.log(this.file);
 }
 SaveChange()
@@ -132,16 +134,35 @@ CreateNote()
     archive:this.archive,
     pin: this.pin,
     reminder: this.reminder
+
   }
   console.log(this.NotesForm.value.title);
   this.notesService.CreateNote(obj)
 .subscribe(
   (status: any) => 
   {
-  console.log(status.message);
+  console.log(status.notesId);
+  if(this.file != null)
+  {
+  console.log("image present");
+  this.AddImage(status.notesId);
+  }
   },(error: HttpErrorResponse) => {
   console.log(error.error.message);
 })
+}
+AddImage(notesId:any)
+{
+  console.log(this.file);
+  this.notesService.AddImage(notesId,this.file)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.message);
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
 }
 cardcolor(color: any){
   var matcard = document.getElementById("matcard")!   
