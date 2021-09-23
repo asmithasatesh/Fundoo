@@ -46,7 +46,7 @@
 
                     <mat-button-toggle class="row" style="margin-top: 10px;" >
                         <i class="material-icons">lightbulb_outline</i>
-                        <h2 *ngIf="opened || toggle">Notes</h2>
+                        <h2 *ngIf="opened || toggle" (click)="getnote = 'notes'">Notes</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">notifications_none</i>
@@ -74,7 +74,7 @@
 
             <mat-drawer-content align="center">
                 <app-notes align="center"></app-notes>
-                <app-getnote></app-getnote>
+                <app-getnote *ngIf="getnote == 'notes'"></app-getnote>
             </mat-drawer-content>
 
         </mat-drawer-container>

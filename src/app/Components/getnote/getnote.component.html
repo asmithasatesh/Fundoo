@@ -7,8 +7,8 @@ align-items:flex-start; margin-left: 50px;">
         <div class="row">
             <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
             <i class="material-icons-outlined hover" matTooltip="Pin" *ngIf="note.pin == false"
-                (click)="pin=!pin">push_pin</i>
-            <i class="material-icons hover" matTooltip="UnPin"style="color: black;" (click)="pin=!pin"
+                >push_pin</i>
+            <i class="material-icons hover" matTooltip="UnPin"style="color: black;"
                 style="margin-right: 10px;" *ngIf="note.pin == true">push_pin</i>
         </div>
         <div style="margin: 20px;">
@@ -19,6 +19,7 @@ align-items:flex-start; margin-left: 50px;">
             <i class="material-icons icon-hover" style="margin-bottom: 5px;">close</i>
         </div>
     </div>
+    <app-icons></app-icons>
     </mat-card>
 
 </div>

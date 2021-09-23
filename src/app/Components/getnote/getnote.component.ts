@@ -12,7 +12,7 @@ export class GetnoteComponent implements OnInit {
 
   constructor(private notesService: NoteServiceService,
     public dialog: MatDialog) { }
-  pin:boolean=false;
+  pin:any;
   userNotes:any;
   ngOnInit(): void {
     this.GetNote();
