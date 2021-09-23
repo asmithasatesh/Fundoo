@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { GetnoteComponent } from './Components/getnote/getnote.component';
 import { CardDialogComponent } from './Components/card-dialog/card-dialog.component';
 import { IconsComponent } from './Components/icons/icons.component';
+import { ReminderComponent } from './Components/reminder/reminder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { IconsComponent } from './Components/icons/icons.component';
     CollaboratorDialogComponent,
     GetnoteComponent,
     CardDialogComponent,
-    IconsComponent
+    IconsComponent,
+    ReminderComponent
   ],
 
   imports: [

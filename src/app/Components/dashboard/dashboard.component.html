@@ -50,7 +50,7 @@
                     </mat-button-toggle>
                     <mat-button-toggle class="row">
                         <i class="material-icons">notifications_none</i>
-                        <h2 *ngIf="opened || toggle">Reminders</h2>
+                        <h2 *ngIf="opened || toggle" (click)="getnote = 'reminder'">Reminders</h2>
                     </mat-button-toggle>
                     <mat-button-toggle class="row" *ngFor="let label of userLabel">
                         <i class="material-icons">label_outline</i>
@@ -75,6 +75,7 @@
             <mat-drawer-content align="center">
                 <app-notes align="center"></app-notes>
                 <app-getnote *ngIf="getnote == 'notes'"></app-getnote>
+                <app-reminder *ngIf="getnote == 'reminder'"></app-reminder>
             </mat-drawer-content>
 
         </mat-drawer-container>
