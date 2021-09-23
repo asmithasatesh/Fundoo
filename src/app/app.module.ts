@@ -38,6 +38,7 @@ import { CardDialogComponent } from './Components/card-dialog/card-dialog.compon
 import { IconsComponent } from './Components/icons/icons.component';
 import { ReminderComponent } from './Components/reminder/reminder.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
+import { TrashComponent } from './Components/trash/trash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { ArchiveComponent } from './Components/archive/archive.component';
     CardDialogComponent,
     IconsComponent,
     ReminderComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    TrashComponent
   ],
 
   imports: [

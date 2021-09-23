@@ -64,7 +64,7 @@
                         <i class="material-icons">archive</i>
                         <h2 *ngIf="opened || toggle">Archive</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row">
+                    <mat-button-toggle class="row" (click)="getnote = 'trash'">
                         <i class="material-icons">delete</i>
                         <h2 *ngIf="opened || toggle">Trash</h2>
                     </mat-button-toggle>
@@ -73,10 +73,11 @@
             </mat-drawer>
 
             <mat-drawer-content align="center">
-                <app-notes align="center" *ngIf="getnote != 'archive'"></app-notes>
+                <app-notes align="center" *ngIf="getnote != 'archive' && getnote != 'trash'"></app-notes>
                 <app-getnote *ngIf="getnote == 'notes'"></app-getnote>
                 <app-reminder *ngIf="getnote == 'reminder'"></app-reminder>
                 <app-archive *ngIf="getnote == 'archive'"></app-archive>
+                <app-trash *ngIf="getnote == 'trash'"></app-trash>
             </mat-drawer-content>
 
         </mat-drawer-container>

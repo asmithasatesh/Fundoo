@@ -55,4 +55,10 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.post(`${environment.baseUrl}/api/GetArchive`, params,true,this.header); 
   }
+  TrashNote()
+  {
+    let params= new HttpParams().set('userId',this.UserDetails.userId);
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/GetTrash`, params,true,this.header); 
+  }
 }
