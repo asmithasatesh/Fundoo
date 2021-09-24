@@ -18,6 +18,8 @@ export class IconsComponent implements OnInit {
   image:any;
   file:any
   ngOnInit(): void {
+    console.log(this.note);
+    this.selecteds = this.note.remainder;
   }
 
   
@@ -175,7 +177,7 @@ archive:boolean=false;
 public date = new Date();
 reminder:any;
 time:string='8:PM';
-selected:string='';
+selecteds:string='';
 // image:any;
 monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
@@ -198,7 +200,6 @@ SetDates(date:string)
       console.log(this.date);
       this.time="8:AM";
     }
-    this.selected=this.time;
     this.reminder=date;
     this.pickDate=!this.pickDate;
     console.log("calling")
@@ -225,5 +226,26 @@ SetReminder(data:any)
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
   })
+}
+SaveChanges()
+{
+
+ let day=''
+ let currDate= new Date();
+ console.log(this.date);
+ console.log(currDate);
+ if(this.date.getDate() == currDate.getDate())
+ {
+   day="Today";
+ }
+ else if(this.date.getDate() == new Date(currDate.setDate(currDate.getDate() + 1)).getDate())
+ {
+   day= "Tomorrow"
+ }
+ else{
+   day = this.monthNames[this.date.getMonth()]+" "+ this.date.getDate().toString();
+ }
+ this.reminder=day+", "+this.selecteds;
+ this.SetReminder(this.reminder);
 }
 }
