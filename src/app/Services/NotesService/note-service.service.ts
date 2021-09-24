@@ -139,4 +139,10 @@ export class NoteServiceService {
     console.log(this.header);
     return this.httpService.put(`${environment.baseUrl}/api/SetReminder`, obj,true,this.header);
   }
+  DeleteReminder(notesId:any)
+  {
+    let params= new HttpParams().set('notesId',notesId);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/RemoveReminder`, params,true,this.header); 
+  }
 }

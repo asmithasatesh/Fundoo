@@ -33,4 +33,17 @@ export class GetnoteComponent implements OnInit {
   {
     this.dialog.open(CardDialogComponent);
   }
+
+DeleteReminder(notes:any)
+{
+  console.log(notes.notesId);
+  this.notesService.DeleteReminder(notes.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.data);
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+}
 }

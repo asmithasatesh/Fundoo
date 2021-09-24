@@ -34,4 +34,15 @@ export class ArchiveComponent implements OnInit {
   {
     this.dialog.open(CardDialogComponent);
   }
+  DeleteReminder(notes:any)
+{
+  this.notesService.DeleteReminder(notes)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.data);
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+}
 }
