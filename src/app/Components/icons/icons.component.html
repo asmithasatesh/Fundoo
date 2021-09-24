@@ -12,7 +12,7 @@
             <input type="file" name="image" accept="image/*" id="image" style="display:none;" />
             <i class="material-icons-outlined" matTooltip="Add Image">image</i>
         </label>
-        <i class="material-icons-outlined" matTooltip="Archive" *ngIf="note.archive == false">archive</i>
+        <i class="material-icons-outlined" matTooltip="Archive" *ngIf="note.archive == false" (click)="Archive()">archive</i>
         <i class="material-icons-outlined"  *ngIf="note.archive == true">unarchive</i>
         <i class="material-icons-outlined" matTooltip="More">more_vert</i>
     </div>

@@ -85,14 +85,14 @@ openDialog()
 OnselectFile(event: any)
 {
   var files: File = event.target.files.item(0);
-
   var reader = new FileReader();
-  reader.readAsDataURL(event.target.files[0]);
+  reader.readAsDataURL(files);
   reader.onload =(event:any)=>{
     this.image = event.target.result;
   console.log(files);
    const formData = new FormData();
     formData.append('formFile', files,files.name);
+    console.log(formData);
     this.file = formData;
 }
 }

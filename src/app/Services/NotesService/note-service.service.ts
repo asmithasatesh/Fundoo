@@ -103,4 +103,10 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.put(`${environment.baseUrl}/api/UnPinNote`, params,true,this.header); 
   }
+  Archive(noteId:any)
+  {
+    let params= new HttpParams().set('notesId',noteId);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/ArchiveNote`, params,true,this.header); 
+  }
 }

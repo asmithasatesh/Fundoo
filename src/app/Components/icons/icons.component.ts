@@ -84,5 +84,19 @@ PinNote()
       console.log(error.error.message);
     })
   }
+  Archive()
+  {
+    this.notesService.Archive(this.note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+      this.openSnackBar(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+
+  }
 
 }
