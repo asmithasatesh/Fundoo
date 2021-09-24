@@ -47,6 +47,15 @@ mat-card img{
         display: block;
     }
   }
+  .hovers
+  {
+      display: none;
+  }
+  .main-card:hover{
+      .icon-bars , .hovers{
+          display: flex;
+      }
+  }
 
   /*
 .main-div{

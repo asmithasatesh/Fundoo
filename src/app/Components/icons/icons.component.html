@@ -1,5 +1,9 @@
 
     <div class="icon-bars" style="margin-top: 0px; margin-bottom: 10px;">
+        <i class="material-icons-outlined hovers" matTooltip="Pin" *ngIf="note.pin == false" style="position: absolute; top: 5px; right: 5px;"
+        (click)="PinNote()">push_pin</i>
+    <i class="material-icons hovers" matTooltip="UnPin" style="color: black;position: absolute; top: 5px; right: 5px; margin-right: 10px;"
+         *ngIf="note.pin == true" (click)="unPinNote()">push_pin</i>
         <i class="material-icons-outlined" matTooltip="Remind me">notification_important</i>
         <i class="material-icons-outlined" matTooltip="Collaborator">person_add_alt_1</i>
         <i class="material-icons-outlined" matTooltip="Change Color"  [matMenuTriggerFor]="ChangeColor">color_lens</i>

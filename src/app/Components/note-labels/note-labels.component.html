@@ -1,17 +1,16 @@
 <div class="main-div" style="  display: flex;
 flex-wrap: wrap;
-align-items:flex-start; margin-left: 150px;">
-    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of userNotes" class="main-card">
+align-items:flex-start;  margin-left: 150px;">
+    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of labelNotes"   class="main-card">
         <img src='{{note.image}}' alt='' style="margin-bottom: 5px;" *ngIf=" note.image != null">
         <div class="contents">
         <div class="row">
             <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
-
         </div>
         <div style="margin: 20px;">
             <p style="margin-top: -15px;">{{note.description}}</p>
         </div>
-        <div class="reminder" style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 20px;" *ngIf="note.remainder != null">
+        <div class="reminder" style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 25px;" *ngIf="note.remainder != null">
             <i class="material-icons " style=" font-size: medium; padding-left: 8px;">access_time</i>
             <p style="padding: 10px 5px 0px 5px;font-size: 12px;" >{{note.remainder}}</p>
             <i class="material-icons icon-hover" style="margin-bottom: 5px;">close</i>
@@ -20,5 +19,11 @@ align-items:flex-start; margin-left: 150px;">
     <app-icons [note]="note"></app-icons>
     </mat-card>
 
+</div>
+<div *ngIf="labelNotes == undefined" style="display: flex; flex-flow: column; color: rgb(141, 139, 139);justify-content: center; align-items: center; margin-top: 10%; font-size: xx-large;">
+    <i class="material-icons"  style=" font-size: 200px; color: rgb(216, 214, 214);">label_outline</i>
+    <p>
+        No notes with this label yet
+    </p>
 </div>
 

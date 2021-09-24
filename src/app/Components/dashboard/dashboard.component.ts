@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   toggle: boolean = false;
  userLabel=[];
  getnote:string= 'notes';
+ labelDetails:any;
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
   ngOnInit(): void {
     this.GetLabel();

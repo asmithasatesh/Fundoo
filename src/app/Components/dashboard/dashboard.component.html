@@ -52,7 +52,7 @@
                         <i class="material-icons">notifications_none</i>
                         <h2 *ngIf="opened || toggle">Reminders</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row" *ngFor="let label of userLabel">
+                    <mat-button-toggle class="row" *ngFor="let label of userLabel" (click)="getnote = 'labels'; labelDetails=label">
                         <i class="material-icons">label_outline</i>
                         <h2 *ngIf="opened || toggle">{{label['labelName']}}</h2>
                     </mat-button-toggle>
@@ -78,6 +78,7 @@
                 <app-reminder *ngIf="getnote == 'reminder'"></app-reminder>
                 <app-archive *ngIf="getnote == 'archive'"></app-archive>
                 <app-trash *ngIf="getnote == 'trash'"></app-trash>
+                <app-note-labels *ngIf="getnote == 'labels'" [labelDetails]="labelDetails"></app-note-labels>
             </mat-drawer-content>
 
         </mat-drawer-container>

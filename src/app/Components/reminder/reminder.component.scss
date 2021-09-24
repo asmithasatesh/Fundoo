@@ -47,3 +47,16 @@ mat-card img{
         display: block;
     }
   }
+  .material-icons .material-icons-outlined
+  {
+      cursor: pointer;
+  }
+  .hovers
+  {
+      display: none;
+  }
+  .main-card:hover{
+      .icon-bars , .hovers{
+          display: flex;
+      }
+  }

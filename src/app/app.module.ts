@@ -39,6 +39,7 @@ import { IconsComponent } from './Components/icons/icons.component';
 import { ReminderComponent } from './Components/reminder/reminder.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
+import { NoteLabelsComponent } from './Components/note-labels/note-labels.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { TrashComponent } from './Components/trash/trash.component';
     IconsComponent,
     ReminderComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    NoteLabelsComponent
   ],
 
   imports: [

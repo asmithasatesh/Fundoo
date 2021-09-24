@@ -58,4 +58,31 @@ SetColor(color:any)
   })
 
 }
+PinNote()
+{
+    this.notesService.Pinnote(this.note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+      this.openSnackBar(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+  }
+  unPinNote()
+  {
+    this.notesService.unPinnote(this.note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+      this.openSnackBar(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+  }
+
 }

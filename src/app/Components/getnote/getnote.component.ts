@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -6,7 +6,7 @@ import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 @Component({
   selector: 'app-getnote',
   templateUrl: './getnote.component.html',
-  styleUrls: ['./getnote.component.scss']
+  styleUrls: ['./getnote.component.scss'],encapsulation:ViewEncapsulation.None
 })
 export class GetnoteComponent implements OnInit {
 

@@ -68,11 +68,10 @@ export class NoteServiceService {
   }
   AddImage(notesId:any,file:any)
   {
-    let image = new FormData();
-    image.append("image",file);
 
+    console.log(file);
       this.getToken();
-      return this.httpService.put(`${environment.baseUrl}/api/AddImage?notes=${notesId}&userId=${this.UserDetails.userId}`, image,true,this.header); 
+      return this.httpService.put(`${environment.baseUrl}/api/AddImage?notes=${notesId}`,file,true,this.header); 
       
   }
   RestoreTrash(noteId: any)
@@ -92,6 +91,16 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.put(`${environment.baseUrl}/api/SetColor`, params,true,this.header); 
   }
-  
-
+  Pinnote(note:any)
+  {
+    let params= new HttpParams().set('notesId',note);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/PinNote`, params,true,this.header); 
+  }
+  unPinnote(note:any)
+  {
+    let params= new HttpParams().set('notesId',note);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/UnPinNote`, params,true,this.header); 
+  }
 }

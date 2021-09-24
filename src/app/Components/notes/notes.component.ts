@@ -80,13 +80,14 @@ openDialog()
       console.log( `Dialog res: ${result}`);
     });
 }
-OnselectFile(files: any)
+OnselectFile(event: any)
 {
-  console.log(files.target.files[0]);
-  var imageFile= new File(files.target.files[0] , files.target.files[0].name);
-  this.file=imageFile;
-  console.log(this.file);
+  var files: File = event.target.files.item(0);
+   const formData = new FormData();
+    formData.append('formFile', files,files.name);
+    this.file = formData;
 }
+
 SaveChange()
 {
 

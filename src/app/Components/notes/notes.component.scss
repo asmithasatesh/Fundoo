@@ -2,7 +2,7 @@ $roboto-slab: 'Roboto', san-serif;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 mat-card
 {
-    width: 45%;
+    width: 50%;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -101,9 +101,7 @@ tes-icon-menu {
 {
     cursor: pointer;
 }
-::ng-deep .column > .row > span{
-    overflow-x: hidden !important;
-}
+
 .space
 {
     display: flex;
