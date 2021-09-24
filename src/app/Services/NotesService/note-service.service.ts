@@ -109,4 +109,23 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.put(`${environment.baseUrl}/api/ArchiveNote`, params,true,this.header); 
   }
+  UnArchive(noteId:any)
+  {
+    let params= new HttpParams().set('notesId',noteId);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/UnArchiveNote`, params,true,this.header); 
+  }
+  DeleteImage(noteId:any)
+  {    let params= new HttpParams().set('notesId',noteId);
+  this.getToken();
+  return this.httpService.put(`${environment.baseUrl}/api/RemoveImage`, params,true,this.header); 
+
+  }
+  NoteTrash(noteId:any)
+  {
+    let params= new HttpParams().set('notesId',noteId);
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/TrashNote`, params,true,this.header); 
+  
+  }
 }

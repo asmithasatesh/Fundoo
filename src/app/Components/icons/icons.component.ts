@@ -98,5 +98,63 @@ PinNote()
     })
 
   }
+  UnArchive()
+  {
+    this.notesService.UnArchive(this.note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+      this.openSnackBar(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+  }
+  DeleteImage()
+  {
+    console.log(this.note.notesId);
+    this.notesService.DeleteImage(this.note.notesId)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+      this.openSnackBar(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+  }
+  OnselectFiles(event: any)
+{
+  var files: File = event.target.files.item(0);
+   var formDatas = new FormData();
+    formDatas.append('formFile', files,files.name);
+    console.log(formDatas);
+    console.log(this.note.notesId);
+    this.notesService.AddImage(this.note.notesId,formDatas)
+    .subscribe(
+      (status: any) => 
+      {
+      console.log(status.message);
+  
+      },(error: HttpErrorResponse) => {
+      console.log(error.error.message);
+    })
+}
+NoteTrash()
+{
+  console.log(this.note.notesId);
+  this.notesService.NoteTrash(this.note.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.message);
+    this.openSnackBar(status.message);
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+}
 
 }

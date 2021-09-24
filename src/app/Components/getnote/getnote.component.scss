@@ -60,7 +60,14 @@ mat-card img{
           display: flex;
       }
   }
+  .delete-image:hover 
+  {
+      .delete-icon
+      {
+        display: block;
 
+      }
+  }
   /*
 .main-div{
     -webkit-rows: 20em;

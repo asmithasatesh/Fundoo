@@ -4,25 +4,29 @@
         (click)="PinNote()">push_pin</i>
     <i class="material-icons hovers" matTooltip="UnPin" style="color: black;position: absolute; top: 5px; right: 5px; margin-right: 10px; cursor: pointer;"
          *ngIf="note.pin == true" (click)="unPinNote()">push_pin</i>
+         <i class="material-icons hovers" style="cursor:pointer; position: absolute; top:100px; right: 5px;" *ngIf="note.image != null" (click)="DeleteImage()">delete</i>
         <i class="material-icons-outlined" matTooltip="Remind me">notification_important</i>
         <i class="material-icons-outlined" matTooltip="Collaborator">person_add_alt_1</i>
         <i class="material-icons-outlined" matTooltip="Change Color"  [matMenuTriggerFor]="ChangeColor" (click)="$event.stopPropagation()">color_lens</i>
-
-        <label for="image">
-            <input type="file" name="image" accept="image/*" id="image" style="display:none;" />
-            <i class="material-icons-outlined" matTooltip="Add Image">image</i>
-        </label>
+            <label for="images">
+                <input type="file" name="images"  accept="image/*" id="images" style="display:none;" (change)="OnselectFiles($event)"/>
+                <i class="material-icons-outlined" matTooltip="Add Image" >image</i>
+             </label>
         <i class="material-icons-outlined" matTooltip="Archive" *ngIf="note.archive == false" (click)="Archive()">archive</i>
-        <i class="material-icons-outlined"  *ngIf="note.archive == true">unarchive</i>
-        <i class="material-icons-outlined" matTooltip="More">more_vert</i>
+        <i class="material-icons-outlined"  *ngIf="note.archive == true"  (click)="UnArchive()">unarchive</i>
+        <i class="material-icons-outlined" matTooltip="More"  [matMenuTriggerFor]="moremenus">more_vert</i>
     </div>
 
     <!--  Menu bar-->
-    <mat-menu #ChangeColor="matMenu" style="margin: 0px; padding: 2px;">
+    <mat-menu #ChangeColor="matMenu" style="margin: 0px;padding: 0px !important;">
             <div style="display: flex;" *ngFor="let colorline of colorList">
-                <div *ngFor="let color of colorline" style="padding: 5px;">
-                    <button [ngStyle]="{ 'background-color': color.color}" mat-fab style="max-width: 30px; max-height: 30px; box-shadow: none; border: 1px solid gray;" matTooltip="{{color.tip}}" (click)="SetColor(color.color)"></button>
+                <div *ngFor="let color of colorline" style="padding: 2px;">
+                    <button [ngStyle]="{ 'background-color': color.color}" mat-mini-fab style="box-shadow: none; border: 1px solid gray; width: 30px; height: 30px;" matTooltip="{{color.tip}}" (click)="SetColor(color.color)"></button>
                 </div>
             </div>
+    </mat-menu>
+    <mat-menu #moremenus="matMenu">
+        <button mat-menu-item style="font-size: 17px;">Add Label</button>
+        <button mat-menu-item style="font-size: 17px;" (click)="NoteTrash()">Delete Note</button>
     </mat-menu>
 
