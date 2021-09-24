@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 import { LabelServiceService } from 'src/app/Services/LabelService/label-service.service';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 
 @Component({
   selector: 'app-note-labels',
@@ -12,7 +13,8 @@ import { LabelServiceService } from 'src/app/Services/LabelService/label-service
 export class NoteLabelsComponent implements OnInit {
 
   constructor(private labelService: LabelServiceService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private data:DataserviceService) { }
  @Input() labelDetails: any
 
 pin:any;
@@ -27,6 +29,7 @@ GetLabelNote()
 .subscribe(
   (status: any) => 
   {
+    this.data.changeMessage(true);
   console.log(status.data);
   this.labelNotes=status.data;
   },(error: HttpErrorResponse) => {

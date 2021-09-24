@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
     this.searchField = '';
   }
   constructor(private route : Router,
-    private notesService: NoteServiceService) { }
+    private notesService: NoteServiceService,
+    private data: DataserviceService) { }
   isGrid=false
   opened: boolean = false;
   toggle: boolean = false;
@@ -30,8 +32,7 @@ export class DashboardComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
-
-  
+      this.data.changeMessage(true);
   this.userLabel=status.data;
   console.log(this.userLabel);
     },(error: HttpErrorResponse) => {

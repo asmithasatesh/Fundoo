@@ -7,6 +7,7 @@ import {MatSnackBar,  MatSnackBarHorizontalPosition,
   import { CollaboratorDialogComponent } from '../collaborator-dialog/collaborator-dialog.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -17,7 +18,8 @@ export class IconsComponent implements OnInit {
   constructor(  private snack: MatSnackBar,
     private notesService: NoteServiceService,
     fb: FormBuilder,
-    public dialog:MatDialog) {
+    public dialog:MatDialog,
+    private data:DataserviceService) {
 
      }
   @Input() note!:any;
@@ -67,6 +69,7 @@ GetLabelUsingUserId()
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log("Label"+status.data);
     this.noteLabel=status.data;
 
@@ -81,6 +84,7 @@ AddLabeltoNote(labelName:any)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log("Label"+status.data);
     this.noteLabel=status.data;
 
@@ -95,6 +99,7 @@ SetColor(color:any)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.message);
 
     },(error: HttpErrorResponse) => {
@@ -108,6 +113,7 @@ PinNote()
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.message);
       this.openSnackBar(status.message);
   
@@ -121,6 +127,7 @@ PinNote()
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.message);
       this.openSnackBar(status.message);
   
@@ -134,6 +141,7 @@ PinNote()
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.message);
       this.openSnackBar(status.message);
   
@@ -148,6 +156,7 @@ PinNote()
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.message);
       this.openSnackBar(status.message);
   
@@ -162,6 +171,7 @@ PinNote()
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.message);
       this.openSnackBar(status.message);
   
@@ -190,6 +200,7 @@ AddImage()
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.message);
 
     },(error: HttpErrorResponse) => {
@@ -203,6 +214,7 @@ NoteTrash()
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.message);
     this.openSnackBar(status.message);
 
@@ -259,6 +271,7 @@ SetReminder(data:any)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.message);
 
     },(error: HttpErrorResponse) => {
@@ -293,7 +306,7 @@ GetCollab()
   .subscribe(
     (status: any) => 
     {
-
+      this.data.changeMessage(true);
     this.collaboratorArray= status.data;
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);

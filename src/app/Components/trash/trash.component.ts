@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 import {MatSnackBar,  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
   
 @Component({
   selector: 'app-trash',
@@ -13,7 +14,8 @@ import {MatSnackBar,  MatSnackBarHorizontalPosition,
 export class TrashComponent implements OnInit {
 
   constructor(private notesService: NoteServiceService,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar,
+    private data: DataserviceService) { }
   pin:any;
   trashNotes:any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
@@ -27,6 +29,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.data);
     this.trashNotes=status.data;
     console.log(this.trashNotes);
@@ -41,7 +44,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
     this.notesService.DeleteTrash(note.notesId)
     .subscribe(
       (status: any) => 
-      {
+      {  this.data.changeMessage(true);
       console.log(status.status);
       this.openSnackBar(status.message);
 
@@ -56,6 +59,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.status);
       this.openSnackBar(status.message);
 
@@ -71,6 +75,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
     .subscribe(
       (status: any) => 
       {
+        this.data.changeMessage(true);
       console.log(status.status);
       this.openSnackBar(status.message);
 

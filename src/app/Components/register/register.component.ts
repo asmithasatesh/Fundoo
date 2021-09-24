@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
+      
       if(status.status == true)
       {
         this.openSnackBar(status.message,'');

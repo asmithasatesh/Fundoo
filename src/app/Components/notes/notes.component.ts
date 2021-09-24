@@ -8,6 +8,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {MatSnackBar,  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 export interface Fruit {
   name: string;
 }
@@ -66,7 +67,8 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   }
   constructor(private notesService: NoteServiceService,
     public dialog:MatDialog,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar,
+    private data: DataserviceService) { }
   ngOnInit(): void {
     this.NotesForm= new FormGroup({
       title: new FormControl(''),
@@ -92,6 +94,7 @@ AddCollab(element:any)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.notesId);
     this.openSnackBar(status.message);
     },(error: HttpErrorResponse) => {
@@ -172,6 +175,7 @@ CreateNote()
 .subscribe(
   (status: any) => 
   {
+    this.data.changeMessage(true);
   console.log(status.notesId);
   this.openSnackBar(status.message);
   this.notesId= status.notesId;
@@ -192,10 +196,12 @@ CreateNote()
 AddImage(notesId:any)
 {
   console.log(this.file);
+
   this.notesService.AddImage(notesId,this.file)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.message);
 
     },(error: HttpErrorResponse) => {

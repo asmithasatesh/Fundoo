@@ -3,6 +3,7 @@ import { NoteServiceService} from 'src/app/Services/NotesService/note-service.se
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CardDialogComponent } from '../card-dialog/card-dialog.component';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 @Component({
   selector: 'app-getnote',
   templateUrl: './getnote.component.html',
@@ -11,7 +12,8 @@ import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 export class GetnoteComponent implements OnInit {
 
   constructor(private notesService: NoteServiceService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private data:DataserviceService) { }
   pin:any;
   userNotes:any;
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class GetnoteComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.data);
     this.userNotes=status.data;
     },(error: HttpErrorResponse) => {
@@ -41,6 +44,7 @@ DeleteReminder(notes:any)
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.data);
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);

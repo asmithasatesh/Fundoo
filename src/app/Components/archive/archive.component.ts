@@ -3,6 +3,7 @@ import { NoteServiceService} from 'src/app/Services/NotesService/note-service.se
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CardDialogComponent } from '../card-dialog/card-dialog.component';
+import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
 
 @Component({
   selector: 'app-archive',
@@ -12,11 +13,18 @@ import { CardDialogComponent } from '../card-dialog/card-dialog.component';
 export class ArchiveComponent implements OnInit {
 
   constructor(private notesService: NoteServiceService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private data: DataserviceService) { }
   pin:any;
   archiveNotes:any;
   ngOnInit(): void {
     this. GetArchive();
+    this.data.currentMessage.subscribe((change)=>{
+        if(change == true){
+          this.GetArchive();
+          this.data.changeMessage(false);
+        }
+    })
   }
   GetArchive()
   {
@@ -40,6 +48,7 @@ export class ArchiveComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
+      this.data.changeMessage(true);
     console.log(status.data);
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
