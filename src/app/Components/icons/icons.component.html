@@ -6,7 +6,7 @@
          *ngIf="note.pin == true" (click)="unPinNote()">push_pin</i>
         <i class="material-icons-outlined" matTooltip="Remind me">notification_important</i>
         <i class="material-icons-outlined" matTooltip="Collaborator">person_add_alt_1</i>
-        <i class="material-icons-outlined" matTooltip="Change Color"  [matMenuTriggerFor]="ChangeColor">color_lens</i>
+        <i class="material-icons-outlined" matTooltip="Change Color"  [matMenuTriggerFor]="ChangeColor" (click)="$event.stopPropagation()">color_lens</i>
 
         <label for="image">
             <input type="file" name="image" accept="image/*" id="image" style="display:none;" />

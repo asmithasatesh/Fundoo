@@ -1,19 +1,21 @@
 <mat-card *ngIf="toggle">
-    <div class="row" (click)="toggle=!toggle">
+    <div class="row" (click)="toggle=!toggle" style="padding-top: 20px;">
         <h3>Take a note ..</h3>
         <div>
-            <i class="material-icons-outlined">check_box</i>
-            <i class="material-icons-outlined">insert_photo</i>
+            <i class="material-icons-outlined" style="padding-right: 20px;">check_box</i>
+            <i class="material-icons-outlined" style="padding-right: 20px;">insert_photo</i>
         </div>
     </div>
 </mat-card>
 <mat-card *ngIf="!toggle" id="matcard">
-    <div class="column" [formGroup]="NotesForm">
+    <!-- <img src='{{image}}' alt='' style="margin-bottom: 5px;"> -->
+   <img id="output" style="width:100%;" *ngIf=" file != null" [src]="image" />
+    <div class="column" [formGroup]="NotesForm" style="margin-top: 10px;">
         <div class="row">
             <input placeholder="Title" class="notes" formControlName='title' id="title">
             <i class="material-icons-outlined" matTooltip="Pin" *ngIf="!pin"
-                (click)="pin=!pin && archive?false:true">push_pin</i>
-            <i class="material-icons" matTooltip="UnPin" *ngIf="pin" style="color: black;" (click)="pin=!pin"
+                (click)="pin=!pin && archive?false:true" style="padding-right: 20px;">push_pin</i>
+            <i class="material-icons" matTooltip="UnPin" *ngIf="pin" style="color: black;padding-right: 20px;" (click)="pin=!pin"
                 style="margin-right: 10px;">push_pin</i>
         </div>
         <div class="row">
@@ -21,7 +23,7 @@
                 id="textarea"></textarea>
         </div>
         <div class="example-chip-list" appearance="fill" *ngIf="fruits.length>0"
-            style="width:max-content; display: flex;">
+            style="width:max-content; display: flex; margin-left: 10px;">
 
             <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
                 (removed)="remove(fruit)" [matMenuTriggerFor]="Pickdate"
@@ -53,7 +55,7 @@
             </div>
             <button mat-button class="MovetoNext" (click)="toggle=!toggle;CreateNote()" style="font-size: 17px;"
                 matTooltip=""
-                style="padding-left: 10px; padding-right: 10px; margin-right: 10px; margin-bottom: 10px;">Close</button>
+                style="padding-left: 10px; padding-right: 10px; margin-right: 20px; margin-bottom: 10px;">Close</button>
         </div>
     </div>
     <mat-menu #Pickdate="matMenu">

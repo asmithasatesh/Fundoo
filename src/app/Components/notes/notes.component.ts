@@ -26,6 +26,7 @@ color:string="";
 pin:boolean=false;
 pickDate:boolean=false;
 archive:boolean=false;
+image:any;
 public date = new Date();
 reminder:any;
 horizontalPosition: MatSnackBarHorizontalPosition = 'start';
@@ -39,6 +40,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   time:string='8:PM';
   selected:string='';
   file:any;
+  // image:any;
   monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
 ];
@@ -83,9 +85,16 @@ openDialog()
 OnselectFile(event: any)
 {
   var files: File = event.target.files.item(0);
+
+  var reader = new FileReader();
+  reader.readAsDataURL(event.target.files[0]);
+  reader.onload =(event:any)=>{
+    this.image = event.target.result;
+  console.log(files);
    const formData = new FormData();
     formData.append('formFile', files,files.name);
     this.file = formData;
+}
 }
 
 SaveChange()
