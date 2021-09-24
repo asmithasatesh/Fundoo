@@ -128,4 +128,15 @@ export class NoteServiceService {
     return this.httpService.put(`${environment.baseUrl}/api/TrashNote`, params,true,this.header); 
   
   }
+  SetReminder(notes:any,notesId:any)
+  {
+    var obj={
+      Remainder: notes,
+  NotesId:notesId,
+  UserId: this.UserDetails.userId
+    };
+    this.getToken();
+    console.log(this.header);
+    return this.httpService.put(`${environment.baseUrl}/api/SetReminder`, obj,true,this.header);
+  }
 }

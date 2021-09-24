@@ -12,3 +12,115 @@
     cursor: pointer;
 }
 
+
+
+
+.space
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.mat-menu-content ng-tns-c117-8
+{
+    width: 500px;
+}
+.h4
+{
+    margin-top: 10px;
+
+    font-weight: 500;
+}
+.color
+{
+    color: rgb(180, 176, 176);
+}
+
+.row > .mat-menu-item{
+    border-radius: 50%;
+    border: 1px solid rgb(189, 186, 186);
+    width: -15px;
+    height: 30px;
+    max-width: -1px !important;
+    max-height: 30px !important;
+}
+.span
+{
+    max-width: -1px !important;
+    max-height: 30px !important;
+}
+span.mat-focus-indicator.mat-tooltip-trigger.span.mat-menu-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.back-arrow
+{
+    border: 2px solid rgb(95, 94, 94);
+    border-radius: 50%;
+    padding: 0px;
+    cursor: pointer;
+}
+.rows
+{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.datе-picker-wrapper {
+    padding: 1rem;
+    max-width: 600px;
+}
+.mat-datepicker-toggle {
+    background: url("../../../assets/60595ee112518.png") no-repeat !important;
+}
+.space-between
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+::ng-deep #mat-menu-panel-3
+{
+    width: 600px !important;
+}
+.pick-date
+{
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    justify-content: left;
+}
+
+::ng-deep .mat-chip {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+hr {
+    display: block;
+    margin: 3px 0 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, .12);
+    background-color: rgb(160, 156, 156);
+    width: 100%
+  }
+  mat-divider {
+    width: 100%;
+}
+::ng-deep .mat-form-field-infix:focus-visible
+{
+    box-shadow: none !important;
+}
+.save-button
+{
+    padding: 10px 20px; 
+    border-radius: 5px;float: right; 
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-size: medium;
+}
+.save-button:hover{
+    background-color: rgb(230, 227, 227);
+}

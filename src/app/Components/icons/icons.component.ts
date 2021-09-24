@@ -13,6 +13,10 @@ export class IconsComponent implements OnInit {
   constructor(  private snack: MatSnackBar,
     private notesService: NoteServiceService) { }
   @Input() note!:any;
+  files:any;
+  notes:any;
+  image:any;
+  file:any
   ngOnInit(): void {
   }
 
@@ -125,22 +129,32 @@ PinNote()
       console.log(error.error.message);
     })
   }
-  OnselectFiles(event: any)
+  onFileChanged(event: any)
+  {
+    var files: File = event.target.files.item(0);
+    var reader = new FileReader();
+    reader.readAsDataURL(files);
+    reader.onload =(event:any)=>{
+      this.image = event.target.result;
+    console.log(files);
+     const formData = new FormData();
+      formData.append('formFile', files,files.name);
+      console.log(this.note.notesId);
+      this.file = formData;
+      this.AddImage();
+  }
+  }
+AddImage()
 {
-  var files: File = event.target.files.item(0);
-   var formDatas = new FormData();
-    formDatas.append('formFile', files,files.name);
-    console.log(formDatas);
-    console.log(this.note.notesId);
-    this.notesService.AddImage(this.note.notesId,formDatas)
-    .subscribe(
-      (status: any) => 
-      {
-      console.log(status.message);
-  
-      },(error: HttpErrorResponse) => {
-      console.log(error.error.message);
-    })
+  this.notesService.AddImage(this.note.notesId,this.file)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.message);
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
 }
 NoteTrash()
 {
@@ -156,5 +170,60 @@ NoteTrash()
     console.log(error.error.message);
   })
 }
+pickDate:boolean=false;
+archive:boolean=false;
+public date = new Date();
+reminder:any;
+time:string='8:PM';
+selected:string='';
+// image:any;
+monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+"Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+];
+SetDates(date:string)
+{
 
+    console.log(date);
+    if(date == 'set')
+    {
+      let nextDate= this.getMonday(new Date());
+      date=  this.monthNames[nextDate.getMonth()] +" "+nextDate.getDate().toString() + ", 8:00 AM"
+      console.log(date);
+      this.date=nextDate;
+      this.time="8:AM";
+    }
+    else if(date == 'Tomorrow, 8:00AM')
+    {
+      this.date=new Date(this.date.setDate(this.date.getDate() + 1));
+      console.log(this.date);
+      this.time="8:AM";
+    }
+    this.selected=this.time;
+    this.reminder=date;
+    this.pickDate=!this.pickDate;
+    console.log("calling")
+    this.SetReminder(date);
+}
+getMonday(d:any) {
+  d = new Date(d);
+  var day = d.getDay(),
+      diff = d.getDate() + day + (day == 1 ? 6:(5-day)); // adjust when day is sunday
+  return new Date(d.setDate(diff));
+}
+SetReminder(data:any)
+{
+  console.log("called")
+  console.log(data);
+
+
+  this.notesService.SetReminder(data,this.note.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.message);
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+}
 }
