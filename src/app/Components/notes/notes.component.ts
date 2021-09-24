@@ -29,6 +29,7 @@ archive:boolean=false;
 image:any;
 public date = new Date();
 reminder:any;
+notesId:any;
 horizontalPosition: MatSnackBarHorizontalPosition = 'start';
 verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
@@ -73,14 +74,30 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   })
 
   }
-
+  collaboratorArray=[];
 openDialog()
 {
-  let dialogRef =this.dialog.open(CollaboratorDialogComponent);
+  let dialogRef =this.dialog.open(CollaboratorDialogComponent,{data:{collab: this.collaboratorArray}});
   dialogRef.afterClosed().subscribe(result =>
     {
-      console.log( `Dialog res: ${result}`);
+      console.log( `Dialog result: ${result}`);
+      this.collaboratorArray = result;
     });
+
+}
+AddCollab(element:any)
+{
+  console.log("add collab");
+  this.notesService.AddCollab(element,this.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log(status.notesId);
+    this.openSnackBar(status.message);
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+
 }
 OnselectFile(event: any)
 {
@@ -137,7 +154,7 @@ else{
 }
 ReminderOption()
 {
-  
+
 }
 CreateNote()
 {
@@ -157,10 +174,16 @@ CreateNote()
   {
   console.log(status.notesId);
   this.openSnackBar(status.message);
+  this.notesId= status.notesId;
   if(this.file != null)
   {
   console.log("image present");
   this.AddImage(status.notesId);
+  }
+  if(this.collaboratorArray.length > 0){
+    this.collaboratorArray.forEach((element:any) => {
+      this.AddCollab(element);
+    });
   }
   },(error: HttpErrorResponse) => {
   console.log(error.error.message);

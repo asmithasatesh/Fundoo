@@ -8,7 +8,7 @@
         *ngIf="note.image != null" (click)="DeleteImage()">delete</i>
     <i class="material-icons-outlined" matTooltip="Remind me"
     [matMenuTriggerFor]="note.remainder != null?Pickdates:remindermenus">notification_important</i>
-    <i class="material-icons-outlined" matTooltip="Collaborator">person_add_alt_1</i>
+    <i class="material-icons-outlined" matTooltip="Collaborator" (click)="GetCollab()">person_add_alt_1</i>
     <i class="material-icons-outlined" matTooltip="Change Color" [matMenuTriggerFor]="ChangeColor"
         (click)="$event.stopPropagation()">color_lens</i>
     <label for="image">
@@ -33,7 +33,7 @@
     </div>
 </mat-menu>
 <mat-menu #moremenus="matMenu">
-    <button mat-menu-item style="font-size: 17px;">Add Label</button>
+    <button mat-menu-item style="font-size: 17px;" [matMenuTriggerFor]="LabelMenu">Add Label</button>
     <button mat-menu-item style="font-size: 17px;" (click)="NoteTrash()">Delete Note</button>
 </mat-menu>
 <mat-menu #remindermenus="matMenu" class="reminder-menu" style="width: 500px;">
@@ -102,4 +102,10 @@
 <div style="display: flex; justify-content: right; margin-top: 10px; width: 100%;">
     <button (click)="SaveChanges()" class="save-button">Save</button>
 </div>
+</mat-menu>
+<mat-menu  #LabelMenu="matMenu"  (click)="$event.stopPropagation()">
+    <div class="example-section">
+        <h4>Label Note:</h4>
+        <p *ngFor="let labels of noteLabel"><mat-checkbox (click)="AddLabeltoNote(labels.labelName)">{{labels['labelName']}}</mat-checkbox></p>
+    </div>
 </mat-menu>

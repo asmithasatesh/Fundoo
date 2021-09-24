@@ -14,15 +14,21 @@ export class CollaboratorDialogComponent implements OnInit {
 
 
   constructor(    public dialogRef: MatDialogRef<CollaboratorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
   UserDetails =  JSON.parse(localStorage.getItem("UserDetails")!); 
-  emails: string[]=[]
+  emails: string[]=[];
   ngOnInit(): void {
+    console.log("retrievddddddddd");
+    console.log(this.data.collab);
+    if( this.data.collab != null)
+    {
+      this.emails=this.data.collab;
+    }
   }
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   clearSearchField() {
 console.log(this.emails);
 this.emails.push(this.searchField);
@@ -33,5 +39,10 @@ console.log(this.emails);
   {
     this.emails.splice(this.emails.indexOf(email),1);
   }
-
+  save(){
+    this.dialogRef.close(this.data.collab);
+ }
+ close(){
+   this.dialogRef.close(this.data.collab);
+ }
 }

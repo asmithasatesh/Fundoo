@@ -3,6 +3,10 @@ import { NoteServiceService} from 'src/app/Services/NotesService/note-service.se
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar,  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+  import {FormBuilder, FormGroup} from '@angular/forms';
+  import { CollaboratorDialogComponent } from '../collaborator-dialog/collaborator-dialog.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -11,15 +15,21 @@ import {MatSnackBar,  MatSnackBarHorizontalPosition,
 export class IconsComponent implements OnInit {
 
   constructor(  private snack: MatSnackBar,
-    private notesService: NoteServiceService) { }
+    private notesService: NoteServiceService,
+    fb: FormBuilder,
+    public dialog:MatDialog) {
+
+     }
   @Input() note!:any;
   files:any;
   notes:any;
   image:any;
-  file:any
+  file:any;
+  checkLabel:any;
   ngOnInit(): void {
     console.log(this.note);
     this.selecteds = this.note.remainder;
+    this.GetLabelUsingUserId();
   }
 
   
@@ -50,7 +60,35 @@ openSnackBar(message: string) {
     horizontalPosition: this.horizontalPosition,
     verticalPosition: this.verticalPosition,});
 }
+noteLabel:any;
+GetLabelUsingUserId()
+{
+  this.notesService.GetLabel()
+  .subscribe(
+    (status: any) => 
+    {
+    console.log("Label"+status.data);
+    this.noteLabel=status.data;
 
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+
+}
+AddLabeltoNote(labelName:any)
+{
+  this.notesService.CreateLabelUsingNote(labelName,this.notes.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+    console.log("Label"+status.data);
+    this.noteLabel=status.data;
+
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  })
+
+}
 SetColor(color:any)
 {
   this.notesService.SetColor(this.note.notesId,color)
@@ -248,4 +286,30 @@ SaveChanges()
  this.reminder=day+", "+this.selecteds;
  this.SetReminder(this.reminder);
 }
+collaboratorArray=[];
+GetCollab()
+{
+  this.notesService.GetCollab(this.note.notesId)
+  .subscribe(
+    (status: any) => 
+    {
+
+    this.collaboratorArray= status.data;
+    },(error: HttpErrorResponse) => {
+    console.log(error.error.message);
+  });
+  this.openDialog();
+}
+openDialog()
+{
+  console.log(this.collaboratorArray);
+  let dialogRef =this.dialog.open(CollaboratorDialogComponent,{data:{collab: this.collaboratorArray}});
+  dialogRef.afterClosed().subscribe(result =>
+    {
+      console.log( `Dialog result: ${result}`);
+      this.collaboratorArray = result;
+    });
+
+}
+
 }

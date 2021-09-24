@@ -145,4 +145,38 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.put(`${environment.baseUrl}/api/RemoveReminder`, params,true,this.header); 
   }
+  AddCollab(element:any,notesId:any)
+  {
+    var obj={
+      CollaboratorEmail:element,
+      NotesId:notesId
+    };
+    this.getToken();
+    console.log("email"+obj);
+    return this.httpService.post(`${environment.baseUrl}/api/AddCollaborator`, obj,true,this.header);
+  }
+  GetLabelsByNotesId()
+  {
+    let params= new HttpParams().set('userId',this.UserDetails.userId);
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/GetLabelByNoteId`, params,true,this.header); 
+
+  }
+  CreateLabelUsingNote(labelName:any,notesId:any)
+  {
+    var obj={
+      LabelName:labelName,
+      NotesId:notesId
+    };
+    this.getToken();
+    console.log("email"+obj);
+    return this.httpService.put(`${environment.baseUrl}/api/CreateLabelUsingNote`, obj,true,this.header);
+
+  }
+  GetCollab(notesId:any)
+  {
+    let params= new HttpParams().set('notesId',notesId);
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/GetCollaborator`, params,true,this.header); 
+  }
 }
