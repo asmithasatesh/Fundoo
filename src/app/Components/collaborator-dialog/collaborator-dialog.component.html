@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>Collaborators</h2>
 <hr class="solid">
 <div class="set-height">
-    <div class="row">
+    <div class="row-collab">
         <img src="../../../assets/account.png" width="30px" height="30px" style=" padding-left: 15px;">
-        <div class="column">
-            <div class="row">
+        <div class="column-collab">
+            <div class="row-collab">
                 <p style="font-weight: 600; padding-bottom: 0px;">{{UserDetails.firstName}} {{UserDetails.lastName}}</p>
                 <span class="italic">
                     <p>(Owner)</p>
@@ -13,13 +13,13 @@
             <p class="owner">{{UserDetails.email}}</p>
         </div>
     </div>
-    <div class="row" *ngFor="let email of emails" style=" margin-top: 8px; margin-bottom: 10px;">
+    <div class="row-collab" *ngFor="let email of emails" style=" margin-top: 8px; margin-bottom: 10px;">
         <img src="../../../assets/collabs.png" width="33px" height="33px" style=" padding-left: 15px;">
         <input placeholder="Person or email to share with" style="font-weight: 400;" [value]="email" readonly>
         <i class="material-icons icons" matSuffix style="padding-right: 10px; cursor: pointer;" (click)="RemoveCollab(email)">clear</i>
     </div>
 
-    <div class="row" style=" margin-top: 10px; margin-bottom: 20px;">
+    <div class="row-collab" style=" margin-top: 10px; margin-bottom: 20px;">
         <i class="material-icons" width="30px" height="30px"
             style="margin-left: 15px; margin-right: 10px; border: 2px solid rgb(122, 121, 121); border-radius: 50%; padding: 5px; color: rgb(141, 139, 139);">person_add</i>
         <input placeholder="Person or email to share with" style="font-weight: 300;" [(ngModel)]="searchField">
