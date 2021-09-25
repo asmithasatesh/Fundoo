@@ -21,6 +21,12 @@ pin:any;
 labelNotes:any;
 ngOnInit(): void {
   this.GetLabelNote();
+  this.data.currentMessage.subscribe((change:any)=>{
+    if(change == true){
+      this.GetLabelNote();
+      this.data.changeMessage(false);
+    }
+})
 }
 GetLabelNote()
 {
@@ -29,7 +35,7 @@ GetLabelNote()
 .subscribe(
   (status: any) => 
   {
-    this.data.changeMessage(true);
+
   console.log(status.data);
   this.labelNotes=status.data;
   },(error: HttpErrorResponse) => {

@@ -48,8 +48,9 @@ export class ArchiveComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
-      this.data.changeMessage(true);
+     
     console.log(status.data);
+    this.data.changeMessage(true);
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
   })

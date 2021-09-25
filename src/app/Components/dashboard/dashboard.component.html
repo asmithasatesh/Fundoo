@@ -44,15 +44,15 @@
 
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
 
-                    <mat-button-toggle class="row" style="margin-top: 10px;"  (click)="getnote = 'notes'">
+                    <mat-button-toggle class="row" style="margin-top: 10px;"  (click)="togglenote = 'notes'">
                         <i class="material-icons">lightbulb_outline</i>
                         <h2 *ngIf="opened || toggle">Notes</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row"  (click)="getnote = 'reminder'">
+                    <mat-button-toggle class="row"  (click)="togglenote = 'reminder'">
                         <i class="material-icons">notifications_none</i>
                         <h2 *ngIf="opened || toggle">Reminders</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row" *ngFor="let label of userLabel" (click)="getnote = 'labels'; labelDetails=label">
+                    <mat-button-toggle class="row" *ngFor="let label of userLabel" (click)="togglenote = 'labels'; labelDetails=label">
                         <i class="material-icons">label_outline</i>
                         <h2 *ngIf="opened || toggle">{{label['labelName']}}</h2>
                     </mat-button-toggle>
@@ -60,11 +60,11 @@
                         <i class="material-icons">edit</i>
                         <h2 *ngIf="opened || toggle">Edit Labels</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row"  (click)="getnote = 'archive'">
+                    <mat-button-toggle class="row"  (click)="togglenote = 'archive'">
                         <i class="material-icons">archive</i>
                         <h2 *ngIf="opened || toggle">Archive</h2>
                     </mat-button-toggle>
-                    <mat-button-toggle class="row" (click)="getnote = 'trash'">
+                    <mat-button-toggle class="row" (click)="togglenote = 'trash'">
                         <i class="material-icons">delete</i>
                         <h2 *ngIf="opened || toggle">Trash</h2>
                     </mat-button-toggle>
@@ -73,12 +73,12 @@
             </mat-drawer>
 
             <mat-drawer-content align="center">
-                <app-notes align="center" *ngIf="getnote != 'archive' && getnote != 'trash'"></app-notes>
-                <app-getnote *ngIf="getnote == 'notes'"></app-getnote>
-                <app-reminder *ngIf="getnote == 'reminder'"></app-reminder>
-                <app-archive *ngIf="getnote == 'archive'"></app-archive>
-                <app-trash *ngIf="getnote == 'trash'"></app-trash>
-                <app-note-labels *ngIf="getnote == 'labels'" [labelDetails]="labelDetails"></app-note-labels>
+                <app-notes align="center" *ngIf="togglenote != 'archive' && togglenote != 'trash'"></app-notes>
+                <app-getnote *ngIf="togglenote == 'notes'"></app-getnote>
+                <app-reminder *ngIf="togglenote == 'reminder'"></app-reminder>
+                <app-archive *ngIf="togglenote == 'archive'"></app-archive>
+                <app-trash *ngIf="togglenote == 'trash'"></app-trash>
+                <app-note-labels *ngIf="togglenote == 'labels'" [labelDetails]="labelDetails"></app-note-labels>
             </mat-drawer-content>
 
         </mat-drawer-container>

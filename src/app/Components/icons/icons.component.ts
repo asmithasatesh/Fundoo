@@ -32,6 +32,11 @@ export class IconsComponent implements OnInit {
     console.log(this.note);
     this.selecteds = this.note.remainder;
     this.GetLabelUsingUserId();
+    this.data.currentMessage.subscribe((change)=>{
+      if(change == true){
+        this.data.changeMessage(false);
+      }
+  });
   }
 
   
@@ -69,7 +74,6 @@ GetLabelUsingUserId()
   .subscribe(
     (status: any) => 
     {
-      this.data.changeMessage(true);
     console.log("Label"+status.data);
     this.noteLabel=status.data;
 
@@ -84,9 +88,10 @@ AddLabeltoNote(labelName:any)
   .subscribe(
     (status: any) => 
     {
-      this.data.changeMessage(true);
+     
     console.log("Label"+status.data);
     this.noteLabel=status.data;
+    this.data.changeMessage(true);
 
     },(error: HttpErrorResponse) => {
     console.log(error.error.message);
@@ -300,23 +305,11 @@ SaveChanges()
  this.SetReminder(this.reminder);
 }
 collaboratorArray=[];
-GetCollab()
-{
-  this.notesService.GetCollab(this.note.notesId)
-  .subscribe(
-    (status: any) => 
-    {
-      this.data.changeMessage(true);
-    this.collaboratorArray= status.data;
-    },(error: HttpErrorResponse) => {
-    console.log(error.error.message);
-  });
-  this.openDialog();
-}
+
 openDialog()
 {
   console.log(this.collaboratorArray);
-  let dialogRef =this.dialog.open(CollaboratorDialogComponent,{data:{collab: this.collaboratorArray}});
+  let dialogRef =this.dialog.open(CollaboratorDialogComponent,{data:{collab: this.collaboratorArray, noteId:this.note.notesId, element:1}});
   dialogRef.afterClosed().subscribe(result =>
     {
       console.log( `Dialog result: ${result}`);

@@ -15,8 +15,8 @@
             <input placeholder="Title" class="notes" formControlName='title' id="title">
             <i class="material-icons-outlined" matTooltip="Pin" *ngIf="!pin"
                 (click)="pin=!pin && archive?false:true" style="padding-right: 20px;">push_pin</i>
-            <i class="material-icons" matTooltip="UnPin" *ngIf="pin" style="color: black;padding-right: 20px;" (click)="pin=!pin"
-                style="margin-right: 10px;">push_pin</i>
+            <i class="material-icons" matTooltip="UnPin" *ngIf="pin" style="color: black;padding-right: 30px;" (click)="pin=!pin"
+               >push_pin</i>
         </div>
         <div class="row">
             <textarea placeholder="Take a note .." id="textarea" (keyup)="Resize()" formControlName='description'
@@ -138,7 +138,7 @@
 
     </mat-menu>
 
-    <mat-menu #colormenu="matMenu" yPosition="above">
+    <mat-menu #colormenu="matMenu" yPosition="above" style="overflow-x: hidden !important;">
         <div class="column">
             <div class="row">
                 <span mat-menu-item style="background-color: white;" (click)="cardcolor('white')" matTooltip="Default">

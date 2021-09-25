@@ -1,1 +1,14 @@
-<p>Its working</p>
+
+    <!-- <img src='{{image}}' alt='' style="margin-bottom: 5px;"> -->
+   <img id="output" style="width:100%;" [src]="data.note.image" />
+    <div class="column"  style="margin-top: 10px;">
+        <div class="row">
+            <input placeholder="Title" class="notes"  id="title"  [(ngModel)]="data.note.title" >
+        </div>
+        <app-icons [note]="data.note"></app-icons>
+        <div class="row">
+            <textarea placeholder="Take a note .." id="textarea" (keyup)="Resize()" 
+                id="textarea"  [(ngModel)]="data.note.description" ></textarea>
+        </div>
+        <button  [ngStyle]="{'background':data.note.color}" mat-flat-button class="closebutton " (click)='updateNote();'>close</button>                
+    </div>

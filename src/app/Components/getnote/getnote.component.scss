@@ -6,10 +6,10 @@
     flex: 1 auto;
     overflow:hidden;
     padding: 0px !important;
-    max-height: 600px;
+    max-height: 1000px;
     min-height: fit-content !important;
-    width: 240px;
-    max-width: 240px;
+    width: 280px;
+    max-width: 280px;
     border-radius: 12px !important;
     margin: 10px;
     
@@ -34,6 +34,8 @@ mat-card img{
   {
       padding: 10px;
       margin-top: 10px;
+      max-width: 500px;
+      overflow-y: auto;
   }
   .icon-hover
   {

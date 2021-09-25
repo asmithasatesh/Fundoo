@@ -1,26 +1,64 @@
 <div class="main-div" style="  display: flex;
-flex-wrap: wrap;
-align-items:flex-start; margin-left: 150px;">
-    <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;" *ngFor="let note of userNotes" class="main-card">
-        <div  *ngIf=" note.image != null" style="padding-bottom: 0px; margin-bottom: 0px;">
-            <img src='{{note.image}}' alt=''>
-        </div>
-        <div class="contents">
-        <div class="row">
-            <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
+flex-flow: column;
+ margin-left: 150px; align-items: flex-start;">
+        <p class="pinLabel">{{PinnedNotes ? 'PINNED' : ''}}</p>
+        <div style="  display: flex;
+    flex-flow: row wrap; align-items: flex-start;">
+            <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;"
+                *ngFor="let note of userNotes" class="main-card">
+                <div *ngIf="note.pin">
+                    <div *ngIf=" note.image != null" style="padding-bottom: 0px; margin-bottom: 0px;">
+                        <img src='{{note.image}}' alt=''  (click)="NoteDialog(note)">
+                    </div>
+                    <div class="contents">
+                        <div class="row"  (click)="NoteDialog(note)">
+                            <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
 
+                        </div>
+                        <div style="margin: 15px;margin-left:15px; max-width:800px"  (click)="NoteDialog(note)">
+                            <p style="margin-top: -15px;">{{note.description}}</p>
+                        </div>
+                        <div class="reminder"
+                            style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 20px;"
+                            *ngIf="note.remainder != null">
+                            <i class="material-icons " style=" font-size: medium; padding-left: 8px;">access_time</i>
+                            <p style="padding: 10px 5px 0px 5px;font-size: 12px;">{{note.remainder}}</p>
+                            <i class="material-icons icon-hover" style="margin-bottom: 5px;"
+                                (click)="DeleteReminder(note)">close</i>
+                        </div>
+                    </div>
+                    <app-icons [note]="note"></app-icons>
+                </div>
+            </mat-card>
         </div>
-        <div style="margin: 20px;">
-            <p style="margin-top: -15px;">{{note.description}}</p>
-        </div>
-        <div class="reminder" style="width: fit-content; display: flex; justify-content: center; align-items: center; background-color: rgb(197, 194, 194); border-radius: 20px;" *ngIf="note.remainder != null">
-            <i class="material-icons " style=" font-size: medium; padding-left: 8px;">access_time</i>
-            <p style="padding: 10px 5px 0px 5px;font-size: 12px;" >{{note.remainder}}</p>
-            <i class="material-icons icon-hover" style="margin-bottom: 5px;" (click)="DeleteReminder(note)">close</i>
-        </div>
-    </div>
-    <app-icons [note]="note"></app-icons>
-    </mat-card>
+        <p class="pinLabel">{{PinnedNotes ? 'OTHERS' : ''}}</p>
+        <div style="  display: flex;
+    flex-wrap: wrap; align-items: flex-start;">
+            <mat-card [ngStyle]="{'background-color': note.color}" style="text-align: left; margin-bottom: 20px;"
+                *ngFor="let note of userNotes" class="main-card">
+                <div *ngIf="!note.pin">
+                    <div *ngIf=" note.image != null" style="padding-bottom: 0px; margin-bottom: 0px;">
+                        <img src='{{note.image}}' alt=''>
+                    </div>
+                    <div class="contents">
+                        <div class="row">
+                            <h2 style="margin-bottom: -5px; margin-top: -5px;">{{note.title}}</h2>
 
+                        </div>
+                        <div style="margin: 20px;">
+                            <p style="margin-top: -15px;">{{note.description}}</p>
+                        </div>
+                        <div class="reminder"
+                            style="width: fit-content; display: flex; justify-content: center; align-items: center;  border-radius: 20px;"
+                            *ngIf="note.remainder != null">
+                            <i class="material-icons " style=" font-size: medium; padding-left: 8px;background-color: rgb(197, 194, 194);">access_time</i>
+                            <p style="padding: 10px 5px 0px 5px;font-size: 12px;background-color: rgb(197, 194, 194);">{{note.remainder}}</p>
+                            <i class="material-icons icon-hover" style="margin-bottom: 5px;background-color: rgb(197, 194, 194);"
+                                (click)="DeleteReminder(note)">close</i>
+                        </div>
+                    </div>
+                    <app-icons [note]="note"></app-icons>
+                </div>
+            </mat-card>
+        </div>
 </div>
-

@@ -19,6 +19,12 @@ export class ReminderComponent implements OnInit {
   reminderNotes:any;
   ngOnInit(): void {
     this.GetReminder();
+    this.data.currentMessage.subscribe((change)=>{
+      if(change == true){
+        this.GetReminder();
+        this.data.changeMessage(false);
+      }
+  })
   }
   GetReminder()
   {
@@ -26,7 +32,7 @@ export class ReminderComponent implements OnInit {
   .subscribe(
     (status: any) => 
     {
-      this.data.changeMessage(true);
+
     console.log(status.data);
     this.reminderNotes=status.data;
     },(error: HttpErrorResponse) => {

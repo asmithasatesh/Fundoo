@@ -179,4 +179,23 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.post(`${environment.baseUrl}/api/GetCollaborator`, params,true,this.header); 
   }
+  RemoveCollab(collabId:any)
+  {
+    this.getToken();
+    return this.httpService.delete(`${environment.baseUrl}/api/RemoveCollaborator?collabId=${collabId}`,true,this.header); 
+  }
+  updateNote(data:any)
+  {
+    console.log("hggg");
+    console.log(data);
+    var param= 
+    {
+      Title :data.title,
+        Description:data.description,
+        NotesId:data.notesId,
+        UserId:data.userId
+    }
+    this.getToken();
+    return this.httpService.post(`${environment.baseUrl}/api/UpdateNote`, param,true,this.header);
+  }
 }

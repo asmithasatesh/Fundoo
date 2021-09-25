@@ -22,6 +22,12 @@ export class TrashComponent implements OnInit {
 verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   ngOnInit(): void {
     this.TrashNote();
+    this.data.currentMessage.subscribe((change)=>{
+      if(change == true){
+        this.TrashNote();
+        this.data.changeMessage(false);
+      }
+  })
   }
   TrashNote()
   {
@@ -29,7 +35,6 @@ verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   .subscribe(
     (status: any) => 
     {
-      this.data.changeMessage(true);
     console.log(status.data);
     this.trashNotes=status.data;
     console.log(this.trashNotes);
