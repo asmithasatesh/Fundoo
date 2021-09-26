@@ -11,7 +11,7 @@
     <i class="material-icons-outlined" matTooltip="Collaborator" (click)="openDialog()">person_add_alt_1</i>
     <i class="material-icons-outlined" matTooltip="Change Color" [matMenuTriggerFor]="ChangeColor"
         (click)="$event.stopPropagation()">color_lens</i>
-    <label for="image">
+    <label (click)="AddImages()">
         <input type="file" name="image" accept="image/*" id="image" style="display:none;"
             (change)="onFileChanged($event)" />
         <mat-icon class="icon material-icons-outlined" matTooltip="add image">portrait</mat-icon>

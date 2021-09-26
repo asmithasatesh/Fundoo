@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NoteServiceService} from 'src/app/Services/NotesService/note-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DataserviceService } from 'src/app/Services/DataService/dataservice.service';
+import { EditlabelComponent } from '../editlabel/editlabel.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,7 +17,8 @@ export class DashboardComponent implements OnInit {
   }
   constructor(private route : Router,
     private notesService: NoteServiceService,
-    private data: DataserviceService) { }
+    private data: DataserviceService,
+    private dialog:MatDialog) { }
   isGrid=false
   opened: boolean = false;
   toggle: boolean = false;
@@ -54,5 +57,14 @@ export class DashboardComponent implements OnInit {
   {
       this.toggle=!this.toggle;
     }
+    openDialog()
+{
+  let dialogRef =this.dialog.open(EditlabelComponent);
+  dialogRef.afterClosed().subscribe(result =>
+    {
+
+    });
+
+}
   
 }

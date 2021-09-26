@@ -198,4 +198,25 @@ export class NoteServiceService {
     this.getToken();
     return this.httpService.post(`${environment.baseUrl}/api/UpdateNote`, param,true,this.header);
   }
+  AddLabelUsingEdit(labelName:string)
+  {
+    let params = {
+      LabelName:labelName,
+      UserId: this.UserDetails.userId
+    };
+    this.getToken();
+    console.log(labelName);
+    return this.httpService.post(`${environment.baseUrl}/api/AddLabelUsingEdit`, params,true,this.header);
+  }
+  DeleteUsingEdit(label:any)
+  {   
+  this.getToken();
+  return this.httpService.delete(`${environment.baseUrl}/api/RemoveLabelUsingEdit?LabelName=${label}&UserId=${ this.UserDetails.userId}`,true,this.header);
+
+  }
+  EditLabel(label:any)
+  {
+    this.getToken();
+    return this.httpService.put(`${environment.baseUrl}/api/EditLabelUsingEdit`, label,true,this.header);
+  }
 }

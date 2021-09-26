@@ -28,6 +28,8 @@ export class IconsComponent implements OnInit {
   image:any;
   file:any;
   checkLabel:any;
+  imageNoteId:any;
+  executeOnce:boolean=false;
   ngOnInit(): void {
     console.log(this.note);
     this.selecteds = this.note.remainder;
@@ -184,6 +186,16 @@ PinNote()
       console.log(error.error.message);
     })
   }
+  AddImages()
+  {
+    if(this.executeOnce == true)
+    {
+      return;
+    }
+    console.log(this.note.notesId);
+    this.imageNoteId=this.note.notesId;
+    this.executeOnce=true;
+  }
   onFileChanged(event: any)
   {
     var files: File = event.target.files.item(0);
@@ -194,14 +206,14 @@ PinNote()
     console.log(files);
      const formData = new FormData();
       formData.append('formFile', files,files.name);
-      console.log(this.note.notesId);
       this.file = formData;
+      this.executeOnce=false;
       this.AddImage();
   }
   }
 AddImage()
 {
-  this.notesService.AddImage(this.note.notesId,this.file)
+  this.notesService.AddImage(this.imageNoteId,this.file)
   .subscribe(
     (status: any) => 
     {

@@ -1,0 +1,97 @@
+hr.solid 
+  {
+    border-top: 3px solid #bbb;
+  }
+
+  ::ng-deep .mat-dialog-container {
+  
+      width: 350px !important;
+      padding: 0px !important;
+
+  }
+  .set-height
+  {
+    max-height: 350px !important;
+    overflow-y:auto;
+
+  }
+  .set-height::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .set-height::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .set-height::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  .set-height::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  .row-collab
+  {
+      display: flex;
+      padding: 0px;
+      margin: 0px;
+  }
+  .column-collab
+  {
+      display: flex;
+      flex-flow: column;
+      padding: 0px;
+      margin: 0px;
+  }
+  .italic
+  {
+      font-style: italic;
+      margin-left: 5px;
+  }
+
+  .material-icons
+  {
+      font-size: x-large;
+  }
+  .button{
+      background-color: rgba(0,0,0,0.07);
+      padding: 5px;
+      display: flex;
+      flex-flow: row-reverse;
+  }
+  .button > h3 
+  {
+      margin-right: 10px;
+      cursor: pointer;
+      padding: 10px 15px 5px 15px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-right: 20px;
+      border-radius: 5px;
+  }
+  .button > h3:hover
+  {
+      background-color: rgba(119, 118, 118, 0.2);
+  }
+  h2{
+      padding-left: 15px;
+      padding-top: 10px;
+  }
+  .owner{
+      margin-top: -10px !important;
+  }
+  img{
+      margin-right: 15px;
+  }
+  input{
+    border: none;
+    width: 100%;
+    min-width: fit-content;
+    font-family: 'Roboto', sans-serif;
+    &:focus-visible{
+        outline: none;
+    }
+}

@@ -53,10 +53,15 @@ mat-card img{
   {
       cursor: pointer;
   }
-  .hovers
+  .main-card
   {
-      display: none;
+    .hovers
+    {
+        display: none;
+    }
+
   }
+
   .main-card:hover{
       .icon-bars , .hovers{
           display: flex;

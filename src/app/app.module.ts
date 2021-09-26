@@ -40,6 +40,7 @@ import { ReminderComponent } from './Components/reminder/reminder.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import { NoteLabelsComponent } from './Components/note-labels/note-labels.component';
+import { EditlabelComponent } from './Components/editlabel/editlabel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { NoteLabelsComponent } from './Components/note-labels/note-labels.compon
     ReminderComponent,
     ArchiveComponent,
     TrashComponent,
-    NoteLabelsComponent
+    NoteLabelsComponent,
+    EditlabelComponent
   ],
 
   imports: [

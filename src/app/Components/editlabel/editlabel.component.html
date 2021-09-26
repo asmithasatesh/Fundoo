@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Edit Labels</h2>
+<div class="set-height">
+
+        <div class="row-collab" style=" margin-top: 10px; margin-bottom: 20px;">
+                <i class="material-icons" width="30px" height="30px"
+                style="margin-left: 15px; margin-right: 10px;  padding: 5px; color: rgb(141, 139, 139);">add</i>
+                <input placeholder="Create new Label" style="font-weight: 300; width: 100%;" [(ngModel)]="searchField">
+            <i class="material-icons icons" matSuffix (click)="clearSearchField()" *ngIf="searchField"
+                style="padding-right: 10px; cursor: pointer;">check</i>
+        </div>
+
+
+    <div class="row-collab" *ngFor="let label of labels" style=" margin-top: 10px; margin-bottom: 20px;">
+        <!-- <i class="material-icons"   style="margin-left: 15px;cursor:  pointer;" *ngIf="edit" (mouseenter)="currentLabel=label;edit=!edit;">label</i> -->
+        <i class="material-icons"    style="margin-left: 15px; cursor: pointer;"  (click)="Delete(label)">delete</i>
+        <input style="font-weight: 400;" [value]="label['labelName']" id="labelinput" (change)="Change($event)">
+            <i class="material-icons"  matSuffix style="padding-right: 10px; cursor: pointer;" (click)="change=!change;currentLabel=label" *ngIf="change">edit</i>
+            <i class="material-icons" (click)="EditLabel(label)" *ngIf="!change">check</i>
+    </div>
+</div>
+<div class="button">
+    <h3 (click)="save()">Done</h3>
+</div>
